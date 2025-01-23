@@ -176,17 +176,16 @@ void print_split(char **split) {
 	free(split);
 }
 
-int main() {
-	char **result;
+// int main() {
+// 	char **result;
 
-	// Test 1: Basic string with delimiters
-	result = ft_split("15 -85 42 99");
-	printf("Test 1:\n");
-	print_split(result);
-	// Expected Output:
-	// Segment 0: 'Hello'
-	// Segment 1: 'World'
-	// Segment 2: '42'
-
-	return 0;
-}
+// 	// Test 1: Basic string with delimiters
+// 	result = ft_split("15 -85 42 99");
+// 	printf("Test 1:\n");
+// 	print_split(result);
+// 	// Expected Output:
+// 	// Segment 0: 'Hello'
+// 	// Segment 1: 'World'
+// 	// Segment 2: '42'
+// 	return 0;
+// }
