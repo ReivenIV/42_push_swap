@@ -13,21 +13,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
-- static size_t	count_words(char const *src, char caracter);
-
-- static	size_t	get_word_len(char const *src, char caracter);
-
-- static	char	**splitter(char const *src, char caracter,
-	char **dest, size_t words_count);
-
-- char	**ft_split(char const *src, char caracter);
-
-- static void	free_dest(size_t i, char **dest);
-
-
-*/
-
 size_t	ft_strlen(const char *str)
 {
 	size_t	count;
