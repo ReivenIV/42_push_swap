@@ -86,7 +86,7 @@ char	*ft_substr(char const *src, unsigned int start, size_t len)
 
 // --------------------
 
-static size_t	count_words(char const *src, char caracter)
+static size_t	count_words(char const *src)
 {
 	size_t	count;
 	size_t	i;
@@ -95,24 +95,24 @@ static size_t	count_words(char const *src, char caracter)
 	i = 0;
 	while (src[i])
 	{
-		if (src[i] != caracter)
+		if (src[i] != ' ')
 		{
 			count++;
-			while (src[i] && src[i] != caracter)
+			while (src[i] && src[i] != ' ')
 				i++;
 		}
-		else if (src[i] == caracter)
+		else if (src[i] == ' ')
 			i++;
 	}
 	return (count);
 }
 
-static	size_t	get_word_len(char const *src, char caracter)
+static	size_t	get_word_len(char const *src)
 {
 	size_t	i;
 
 	i = 0;
-	while (src[i] && src[i] != caracter)
+	while (src[i] && src[i] != ' ')
 		i++;
 	return (i);
 }
@@ -127,8 +127,7 @@ static void	free_dest(size_t i, char **dest)
 	free(dest);
 }
 
-static	char	**splitter(char const *src, char caracter,
-	char **dest, size_t words_count)
+static	char	**splitter(char const *src,	char **dest, size_t words_count)
 {
 	size_t	i;
 	size_t	j;
@@ -137,15 +136,15 @@ static	char	**splitter(char const *src, char caracter,
 	j = 0;
 	while (i < words_count)
 	{
-		while (src[j] && src[j] == caracter)
+		while (src[j] && src[j] == ' ')
 			j++;
-		dest [i] = ft_substr(src, j, get_word_len(&src[j], caracter));
+		dest [i] = ft_substr(src, j, get_word_len(&src[j]));
 		if (!dest[i])
 		{
 			free_dest(i, dest);
 			return (NULL);
 		}
-		while (src[j] && src[j] != caracter)
+		while (src[j] && src[j] != ' ')
 			j++;
 		i++;
 	}
@@ -153,41 +152,41 @@ static	char	**splitter(char const *src, char caracter,
 	return (dest);
 }
 
-char	**ft_split(char const *src, char caracter)
+char	**ft_split(char const *src)
 {
 	char	**dest;
 	size_t	src_count_words;
 
 	if (!src)
 		return (NULL);
-	src_count_words = count_words(src, caracter);
+	src_count_words = count_words(src);
 	dest = (char **)malloc(sizeof(char *) * (src_count_words + 1));
 	if (!dest)
 		return (NULL);
-	dest = splitter(src, caracter, dest, src_count_words);
+	dest = splitter(src, dest, src_count_words);
 	return (dest);
 }
 // //!  Main function to test ft_split
-// #include <stdio.h>
-// void print_split(char **split) {
-//     for (int i = 0; split[i]; i++) {
-//         printf("Segment %d: '%s'\n", i, split[i]);
-//         free(split[i]);
-//     }
-//     free(split);
-// }
+#include <stdio.h>
+void print_split(char **split) {
+	for (int i = 0; split[i]; i++) {
+		printf("Segment %d: '%s'\n", i, split[i]);
+		free(split[i]);
+	}
+	free(split);
+}
 
-// int main() {
-//     char **result;
+int main() {
+	char **result;
 
-//     // Test 1: Basic string with delimiters
-//     result = ft_split("Hello#World#42", '#');
-//     printf("Test 1:\n");
-//     print_split(result);
-//     // Expected Output:
-//     // Segment 0: 'Hello'
-//     // Segment 1: 'World'
-//     // Segment 2: '42'
+	// Test 1: Basic string with delimiters
+	result = ft_split("15 -85 42 99");
+	printf("Test 1:\n");
+	print_split(result);
+	// Expected Output:
+	// Segment 0: 'Hello'
+	// Segment 1: 'World'
+	// Segment 2: '42'
 
-//     return 0;
-// }
+	return 0;
+}
