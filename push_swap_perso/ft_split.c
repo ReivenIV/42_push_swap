@@ -5,132 +5,91 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 17:17:52 by rita              #+#    #+#             */
-/*   Updated: 2025/01/23 17:17:52 by rita             ###   ########.fr       */
+/*   Created: 2023/09/15 16:23:30 by gyong-si          #+#    #+#             */
+/*   Updated: 2025/01/23 18:21:48 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-
-static int	count_words(const char *src);
-static int	splitter(char **dest, const char *src);
-static char	*ft_strndup(const char *src, size_t start, size_t end);
-char **ft_split(const char *src);
-
-static int	count_words(const char *src)
+static size_t	count_words(char const *src, char caracter)
 {
-	size_t	i;
 	size_t	count;
+	size_t	i;
 
-	i = 0;
 	count = 0;
-	while (src[i] != '\0')
+	i = 0;
+	while (src[i])
 	{
-		while (src[i] != '\0' && src[i] == ' ')
-			i++;
-		if (src[i] != '\0')
+		if (src[i] != caracter)
 		{
 			count++;
-			while (src[i] != '\0' && src[i] != ' ')
+			while (src[i] && src[i] != caracter)
 				i++;
 		}
+		else if (src[i] == caracter)
+			i++;
 	}
 	return (count);
 }
 
-static char	*ft_strndup(const char *src, size_t start, size_t end)
+static	size_t	get_word_len(char const *src, char caracter)
 {
-	size_t		i;
-	char		*dest;
+	size_t	i;
 
-	if (src == NULL || start > end)
-		return (NULL);
-	dest = malloc((end - start + 2) * sizeof(char));
-	if (dest == NULL)
-		return (NULL);
 	i = 0;
-	while (i < (end - start + 1))
-	{
-		dest[i] = src[i + start];
+	while (src[i] && src[i] != caracter)
 		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	return (i);
 }
 
-static int	splitter(char **dest, const char *src)
+static void	free_dest(size_t i, char **dest)
+{
+	while (i > 0)
+	{
+		i--;
+		free(dest[i]);
+	}
+	free(dest);
+}
+
+static	char	**splitter(char const *src, char caracter,
+	char **dest, size_t words_count)
 {
 	size_t	i;
 	size_t	j;
-	size_t	start;
-	size_t	end;
 
 	i = 0;
 	j = 0;
-	if (dest == NULL || src == NULL)
-		return (0);
-	while (src[i] != '\0')
+	while (i < words_count)
 	{
-		while (src[i] != '\0' && src[i] == ' ')
-			i++;
-		if (src[i] != '\0')
-		{
-			start = i;
-			while (src[i] != '\0' && src[i] != ' ')
-				i++;
-			end = i - 1;
-			dest[j] = ft_strndup(src, start, end);
+		while (src[j] && src[j] == caracter)
 			j++;
+		dest [i] = ft_substr(src, j, get_word_len(&src[j], caracter));
+		if (!dest[i])
+		{
+			free_dest(i, dest);
+			return (NULL);
 		}
+		while (src[j] && src[j] != caracter)
+			j++;
+		i++;
 	}
-	dest[j] = NULL;
-	return (j);
-}
-
-char **ft_split(const char *src) {
-	int src_count_words;
-	char **dest;
-
-	if (src == NULL)
-		return (NULL);
-	src_count_words = count_words((char *)src);
-	dest = malloc((src_count_words + 1) * sizeof(char *));
-	if (dest == NULL)
-		return (NULL);
-	if (src_count_words == 0) {
-		dest[0] = NULL;
-		return (dest);
-	}
-	if (splitter(dest, src) == 0) {
-		for (int i = 0; i < src_count_words; i++) {
-			free(dest[i]);
-		}
-		free(dest);
-		return (NULL);
-	}
+	dest[i] = NULL;
 	return (dest);
 }
 
+char	**ft_split(char const *src, char caracter)
+{
+	char	**dest;
+	size_t	src_count_words;
 
-
-
-// //!  Main function to test ft_split
-// #include <stdio.h>
-// void print_split(char **split) {
-// 	for (int i = 0; split[i]; i++) {
-// 		printf("Segment %d: '%s'\n", i, split[i]);
-// 		free(split[i]);
-// 	}
-// 	free(split);
-// }
-
-// int main() {
-// 	char **result;
-
-// 	result = ft_split("12 35 48 6 -85 +74 -85");
-// 	printf("Test ft_split:\n");
-// 	print_split(result);
-// 	return 0;
-// }
+	if (!src)
+		return (NULL);
+	src_count_words = count_words(src, caracter);
+	dest = (char **)malloc(sizeof(char *) * (src_count_words + 1));
+	if (!dest)
+		return (NULL);
+	dest = splitter(src, caracter, dest, src_count_words);
+	return (dest);
+}
