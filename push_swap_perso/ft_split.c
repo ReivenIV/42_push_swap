@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "push_swap.h"
 
 size_t	ft_strlen(const char *str)
 {
@@ -151,15 +150,21 @@ char	**ft_split(char const *src)
 	dest = splitter(src, dest, src_count_words);
 	return (dest);
 }
+
+
+//   ---------------------
+//   ::  test it dear   :: 
+//   ---------------------
+
 // //!  Main function to test ft_split
-#include <stdio.h>
-void print_split(char **split) {
-	for (int i = 0; split[i]; i++) {
-		printf("Segment %d: '%s'\n", i, split[i]);
-		free(split[i]);
-	}
-	free(split);
-}
+// #include <stdio.h>
+// void print_split(char **split) {
+// 	for (int i = 0; split[i]; i++) {
+// 		printf("Segment %d: '%s'\n", i, split[i]);
+// 		free(split[i]);
+// 	}
+// 	free(split);
+// }
 
 // int main() {
 // 	char **result;
