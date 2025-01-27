@@ -39,7 +39,10 @@ long	ft_atol(const char *src);
 
 // Error handling
 int		syntax_check(char* src);
+int		is_nb_in_stack(t_stack *a, int nb);
+void	free_stack(t_stack **stack);
 void	free_argv(char **argv);
+void	free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2);
 
 // Algos
 
