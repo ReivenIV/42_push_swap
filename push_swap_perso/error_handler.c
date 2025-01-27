@@ -60,42 +60,23 @@ int	check_syntax(char* src) // error_syntax
 // //     return 0;
 // // }
 
-// Function to free the stack
-void	free_stack(t_stack **stack)
-{
-	t_stack	*tmp_node;
-	t_stack *current_node;
 
-	if (stack == NULL)
-		return ;
-	current_node = *stack;
-	while (current_node)
-	{
-		tmp_node = current_node->next;
-		free(current_node);
-		current_node = tmp_node;
-	}
-	*stack = NULL;
-	return ;
-}
-
-// TODO		 int	check_repetitions()
-int	check_repetitions(t_stack *a, int nbr)
+int	is_nb_in_stack(t_stack *a, int nb)
 {
 	if (NULL == a)
 		return (0);
 	while (a)
 	{
-		if (a->value == nbr)
+		if (a->value == nb)
 			return (1);
 		a = a->next;
 	}
 	return (0);
 }
 
-//----------------------------------------------------
-//------------------Testing functions ----------------
-//----------------------------------------------------
+//! ---------------------------------------------------
+//! -------------  Testing functions  -----------------
+//! ---------------------------------------------------
 
 // Function to print all elements in the stack
 void print_stack(t_stack *stack)
@@ -135,36 +116,79 @@ void push(t_stack **stack, int value)
 }
 
 
+//* test :: is_nb_in_stack
+// // int main(void)
+// // {
+// //     t_stack *stack = NULL;
+// //     // Create a stack with some values
+// //     push(&stack, 3);
+// //     push(&stack, 2);
+// //     push(&stack, 1);
+// //     push(&stack, 2); // Duplicate value
+// //     printf("Stack values: ");
+// //     print_stack(stack);
+// //     printf("\n");
+// //     // Test is_nb_in_stack function
+// //     printf("Test 1: %i -> %i\n", 1, is_nb_in_stack(stack, 1)); // Expected: 0 (no repetition)
+// //     printf("Test 2: %i -> %i\n", 2, is_nb_in_stack(stack, 2)); // Expected: 0 (no repetition)
+// //     printf("Test 3: %i -> %i\n", 3, is_nb_in_stack(stack, 3)); // Expected: 0 (no repetition)
+// //     printf("Test 4: %i -> %i\n", 4, is_nb_in_stack(stack, 4)); // Expected: 1 (repetition found)
+// //     // Free the stack
+// //     free_stack(&stack);
+// //     return 0;
+// // }
+//! ---------------------------------------------------
+//! ---------------------------------------------------
+//! ---------------------------------------------------
 
-int main(void)
+//* will free a stack of nodes.
+void	free_stack(t_stack **stack)
 {
-    t_stack *stack = NULL;
+	t_stack	*tmp_node;
+	t_stack *current_node;
 
-    // Create a stack with some values
-    push(&stack, 3);
-    push(&stack, 2);
-    push(&stack, 1);
-    push(&stack, 2); // Duplicate value
-
-    printf("Stack values: ");
-    print_stack(stack);
-    printf("\n");
-
-    // Test check_repetitions function
-    printf("Test 1: %i -> %i\n", 1, check_repetitions(stack, 1)); // Expected: 0 (repetition found)
-    printf("Test 2: %i -> %i\n", 2, check_repetitions(stack, 2)); // Expected: 0 (repetition found)
-    printf("Test 3: %i -> %i\n", 3, check_repetitions(stack, 3)); // Expected: 1 (no repetition)
-    printf("Test 4: %i -> %i\n", 4, check_repetitions(stack, 4)); // Expected: 1 (no repetition)
-
-    // Free the stack
-    free_stack(&stack);
-
-    return 0;
+	if (stack == NULL)
+		return ;
+	current_node = *stack;
+	while (current_node)
+	{
+		tmp_node = current_node->next;
+		free(current_node);
+		current_node = tmp_node;
+	}
+	*stack = NULL;
+	return ;
 }
-//----------------------------------------------------
-//----------------------------------------------------
-//----------------------------------------------------
 
+//* Test function for free_stack
+// // void test_free_stack()
+// // {
+// // 	t_stack *stack = NULL;
+
+// // 	// Create a stack with some values
+// // 	push(&stack, 3);
+// // 	push(&stack, 2);
+// // 	push(&stack, 1);
+
+// // 	// Print the stack before freeing
+// // 	printf("Stack before freeing: ");
+// // 	print_stack(stack);
+
+// // 	// Free the stack
+// // 	free_stack(&stack);
+
+// // 	// Check if the stack is NULL after freeing
+// // 	if (stack == NULL)
+// // 		printf("Stack successfully freed.\n");
+// // 	else
+// // 		printf("Stack not freed properly.\n");
+// // }
+
+// // int main(void)
+// // {
+// // 	test_free_stack();
+// // 	return 0;
+// // }
 
 //* Will free all elements in argv
 void	free_argv(char **argv)			// free_matrix
@@ -182,9 +206,33 @@ void	free_argv(char **argv)			// free_matrix
 	free(argv);
 }
 
-//* will free a stack of nodes. 
+//* test free_argv (you will need to test it with valgrind)
+// int main()
+// {
+//     // Allocate memory for argv
+//     char **argv = (char **)malloc(4 * sizeof(char *));
+//     if (!argv)
+//         return 1;
+//     // Allocate memory for each argument
+//     argv[0] = malloc(10 * sizeof(char));
+//     argv[1] = malloc(10 * sizeof(char));
+//     argv[2] = malloc(10 * sizeof(char));
+//     argv[3] = NULL; // Null-terminate the array
+//     // Assign values to each argument
+//     snprintf(argv[0], 10, "arg1");
+//     snprintf(argv[1], 10, "arg2");
+//     snprintf(argv[2], 10, "arg3");
+//     // Print the arguments
+//     for (int i = 0; argv[i] != NULL; i++)
+//     {
+//         printf("argv[%d] = %s\n", i, argv[i]);
+//     }
+//     // Free the memory allocated for argv
+//     free_argv(argv);
+//     return 0;
+// }
 
-
+// Will free all the stack and if argc was only 2 (known by 1/0 TRUE/FALSE) will free all argv aswell
 void	free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2) //  error_free
 {
 	free_stack(a_or_b);
@@ -193,3 +241,30 @@ void	free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2) //  error_fre
 	write(2, "Error\n", 6);
 	exit(1);
 }
+
+//* Test free_handler
+// // #include <string.h>
+// // int main(void)
+// // {
+// //     // Create a simple stack for testing
+// //     t_stack *stack = malloc(sizeof(t_stack));
+// //     stack->value = 1;
+// //     stack->current_position = 0;
+// //     stack->previous = NULL;
+// //     stack->next = malloc(sizeof(t_stack));
+// //     stack->next->value = 2;
+// //     stack->next->current_position = 1;
+// //     stack->next->previous = stack;
+// //     stack->next->next = NULL;
+
+// //     // Create a simple argv array for testing
+// //     char **argv = malloc(3 * sizeof(char *));
+// //     argv[0] = strdup("arg1");
+// //     argv[1] = strdup("arg2");
+// //     argv[2] = NULL;
+
+// //     // Call the free_handler function
+// //     free_handler(&stack, argv, true);
+
+// //     return 0;
+// // }
