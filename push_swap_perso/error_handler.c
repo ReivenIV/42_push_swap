@@ -16,7 +16,7 @@
 //* Will check src is a (char*)number. 
 // if valid, TRUE/1
 // if not valid, FALSE/0
-int	syntax_check(char* src) // error_syntax 
+int	check_syntax(char* src) // error_syntax 
 {
 	int i;
 	
@@ -60,23 +60,7 @@ int	syntax_check(char* src) // error_syntax
 // //     return 0;
 // // }
 
-//* Will free all elements in argv
-void	free_argv(char **argv) // free_matrix
-{
-	int i;
-
-	//i = -1;				//!	 not sure why -1
-	i = 0;					//!	updated to 0
-	while(argv[i])
-	{
-		free(argv[i]);
-		i++;
-	}
-	// free(argv - 1);		//! not sure why (argv - 1)
-	free(argv);
-}
-
-//* will free a stack of nodes. 
+// Function to free the stack
 void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp_node;
@@ -94,6 +78,112 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 	return ;
 }
+
+// TODO		 int	check_repetitions()
+int	check_repetitions(t_stack *a, int nbr)
+{
+	if (NULL == a)
+		return (0);
+	while (a)
+	{
+		if (a->value == nbr)
+			return (1);
+		a = a->next;
+	}
+	return (0);
+}
+
+//----------------------------------------------------
+//------------------Testing functions ----------------
+//----------------------------------------------------
+
+// Function to print all elements in the stack
+void print_stack(t_stack *stack)
+{
+    t_stack *current = stack;
+    while (current != NULL)
+    {
+        printf("%d ", current->value);
+        current = current->next;
+    }
+    printf("\n");
+}
+
+
+// Function to create a new stack node
+t_stack *new_node(int value)
+{
+    t_stack *node = (t_stack *)malloc(sizeof(t_stack));
+    if (!node)
+        return NULL;
+    node->value = value;
+    node->next = NULL;
+    node->previous = NULL;
+    return node;
+}
+
+// Function to add a node to the stack
+void push(t_stack **stack, int value)
+{
+    t_stack *node = new_node(value);
+    if (!node)
+        return;
+    node->next = *stack;
+    if (*stack)
+        (*stack)->previous = node;
+    *stack = node;
+}
+
+
+
+int main(void)
+{
+    t_stack *stack = NULL;
+
+    // Create a stack with some values
+    push(&stack, 3);
+    push(&stack, 2);
+    push(&stack, 1);
+    push(&stack, 2); // Duplicate value
+
+    printf("Stack values: ");
+    print_stack(stack);
+    printf("\n");
+
+    // Test check_repetitions function
+    printf("Test 1: %i -> %i\n", 1, check_repetitions(stack, 1)); // Expected: 0 (repetition found)
+    printf("Test 2: %i -> %i\n", 2, check_repetitions(stack, 2)); // Expected: 0 (repetition found)
+    printf("Test 3: %i -> %i\n", 3, check_repetitions(stack, 3)); // Expected: 1 (no repetition)
+    printf("Test 4: %i -> %i\n", 4, check_repetitions(stack, 4)); // Expected: 1 (no repetition)
+
+    // Free the stack
+    free_stack(&stack);
+
+    return 0;
+}
+//----------------------------------------------------
+//----------------------------------------------------
+//----------------------------------------------------
+
+
+//* Will free all elements in argv
+void	free_argv(char **argv)			// free_matrix
+{
+	int i;
+
+	//i = -1;							//!	not sure why -1
+	i = 0;								//!	updated to 0
+	while(argv[i])
+	{
+		free(argv[i]);
+		i++;
+	}
+	// free(argv - 1);					//! not sure why (argv - 1)
+	free(argv);
+}
+
+//* will free a stack of nodes. 
+
 
 void	free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2) //  error_free
 {
