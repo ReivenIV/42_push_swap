@@ -78,42 +78,7 @@ int	is_nb_in_stack(t_stack *a, int nb)
 //! -------------  Testing functions  -----------------
 //! ---------------------------------------------------
 
-// Function to print all elements in the stack
-void print_stack(t_stack *stack)
-{
-    t_stack *current = stack;
-    while (current != NULL)
-    {
-        printf("%d ", current->value);
-        current = current->next;
-    }
-    printf("\n");
-}
 
-
-// Function to create a new stack node
-t_stack *new_node(int value)
-{
-    t_stack *node = (t_stack *)malloc(sizeof(t_stack));
-    if (!node)
-        return NULL;
-    node->value = value;
-    node->next = NULL;
-    node->previous = NULL;
-    return node;
-}
-
-// Function to add a node to the stack
-void push(t_stack **stack, int value)
-{
-    t_stack *node = new_node(value);
-    if (!node)
-        return;
-    node->next = *stack;
-    if (*stack)
-        (*stack)->previous = node;
-    *stack = node;
-}
 
 
 //* test :: is_nb_in_stack
@@ -121,10 +86,10 @@ void push(t_stack **stack, int value)
 // // {
 // //     t_stack *stack = NULL;
 // //     // Create a stack with some values
-// //     push(&stack, 3);
-// //     push(&stack, 2);
-// //     push(&stack, 1);
-// //     push(&stack, 2); // Duplicate value
+// //     push_node(&stack, 3);
+// //     push_node(&stack, 2);
+// //     push_node(&stack, 1);
+// //     push_node(&stack, 2); // Duplicate value
 // //     printf("Stack values: ");
 // //     print_stack(stack);
 // //     printf("\n");
@@ -166,9 +131,9 @@ void	free_stack(t_stack **stack)
 // // 	t_stack *stack = NULL;
 
 // // 	// Create a stack with some values
-// // 	push(&stack, 3);
-// // 	push(&stack, 2);
-// // 	push(&stack, 1);
+// // 	push_node(&stack, 3);
+// // 	push_node(&stack, 2);
+// // 	push_node(&stack, 1);
 
 // // 	// Print the stack before freeing
 // // 	printf("Stack before freeing: ");

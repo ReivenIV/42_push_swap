@@ -34,15 +34,20 @@ typedef struct s_stack
 
 // Tools  
 //* Parsing
-char	**ft_split(char const *src);
-long	ft_atol(const char *src);
+char		**ft_split(char const *src);
+long		ft_atol(const char *src);
 
 // Error handling
-int		syntax_check(char* src);
-int		is_nb_in_stack(t_stack *a, int nb);
-void	free_stack(t_stack **stack);
-void	free_argv(char **argv);
-void	free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2);
+int			syntax_check(char* src);
+int			is_nb_in_stack(t_stack *a, int nb);
+void		free_stack(t_stack **stack);
+void		free_argv(char **argv);
+void		free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2);
+
+// Stack tools
+void		print_stack(t_stack *stack);			// --> for testing
+t_stack		*new_node(int value);					// --> for testing
+void		push_node(t_stack **stack, int value);	// --> for testing
 
 // Algos
 
