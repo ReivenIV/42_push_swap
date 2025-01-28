@@ -33,21 +33,19 @@ void	stack_init(t_stack **stack_a, char **argv, bool is_argc_2)
 	i = 0;
 	while (argv[i])
 	{
-		if (!is_syntax_correct(argv[i]))
+		if (!is_syntax_correct(argv[i]))							// Do we have only nbrs ?
 			free_handler(stack_a, argv, is_argc_2);
-		l_nbr = ft_atol(argv[i]);
-		if (l_nbr > INT_MAX || l_nbr < INT_MIN)
+		l_nbr = ft_atol(argv[i]);									// Because we have only numbers atol every single s***			
+		if (l_nbr > INT_MAX || l_nbr < INT_MIN)						// check if we have bigger or smaller than INT_MIN/MAX
 			free_handler(stack_a, argv, is_argc_2);
-		if (is_nb_in_stack(*stack_a, (int)l_nbr))
-		{
-			free_handler(stack_a, argv, is_argc_2);
-		}
-		push_to_bottom_node(stack_a, (int)l_nbr);
+		if (is_nb_in_stack(*stack_a, (int)l_nbr))					// check repetitions. Remember these will check every time we add want to add a number. Is not checkin all the existing stack
+			free_handler(stack_a, argv, is_argc_2);					
+		push_to_bottom_node(stack_a, (int)l_nbr);					// if all checks are passed. We add a new node to the end of the stack. (remember the stack is under construction)
 		i++;
 	}
-	if (is_argc_2)
+	if (is_argc_2)													// in case if is_argc_2 == TRUE(1) we free argv to avoid leaks.
 		free_argv(argv);
-}
+}																	// Rock it baby
 
 
 //   ---------------------
