@@ -28,7 +28,7 @@
 - If everything is in good shape we atol everything
 	- [x] we will need atol (atoi but with a long int to handle INT_MIN/MAX)
 - [x] We check every string. If in any case there is a bug like ::	  int_min  / int_max    -> error
-- [ ] We check every string. If in any case there is a bug like ::	  nbs repetitions		-> error
+- [x] We check every string. If in any case there is a bug like ::	  nbs repetitions		-> error
 - [ ] we create / append a new node in the stack A.
 
 ### Outside the loop
