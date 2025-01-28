@@ -62,8 +62,23 @@ t_stack	*get_last_node(t_stack	*head_node)
 	return (last_node);
 }
 
-// TODO Append one node at the end of the stack
-// Will add a node to the bottom of the stack. 
+// Add a new_node on top of the stack. 
+// ex: Stack : (1,2,3)   to add : 40  ==>  Stack : (40,1,2,3)
+void push_to_top_node(t_stack **stack, int value)
+{
+	t_stack *new_node;
+
+	new_node = create_new_node(value);
+	if (new_node == NULL)
+		return ;
+	t_stack *top_node = *stack; 			// get the current head node of the stack.
+	new_node->next = top_node;				// set the new node next adrrese to the current top node.
+	if (top_node)
+		top_node->prev = new_node;			// if the stack is not empty the new secod node now will point to the new node
+	*stack = new_node;						// updates the stack top pointer with the current new_node created.
+}
+
+// Add a new_node to the bottom of the stack. 
 // ex: Stack : (1,2,3)   to add : 40  ==>  Stack : (1,2,3,40)
 void	push_to_bottom_node(t_stack **stack, int value)     
 {
@@ -84,27 +99,6 @@ void	push_to_bottom_node(t_stack **stack, int value)
 		new_node->prev = old_last_node;
 	}
 }
-
-
-
-//* Function to add a node to the stack
-// Will add a node on top of the stack. 
-// ex: Stack : (1,2,3)   to add : 40  ==>  Stack : (40,1,2,3)
-void push_to_top_node(t_stack **stack, int value)
-{
-	t_stack *new_node;
-
-	new_node = create_new_node(value);
-	if (new_node == NULL)
-		return ;
-	t_stack *top_node = *stack; 			// get the current head node of the stack.
-	new_node->next = top_node;				// set the new node next adrrese to the current top node.
-	if (top_node)
-		top_node->prev = new_node;			// if the stack is not empty the new secod node now will point to the new node
-	*stack = new_node;						// updates the stack top pointer with the current new_node created.
-}
-
-
 
 //* test | get_last_node | push_to_bottom_node | push_to_top_node | to tests.
 // // int main()
