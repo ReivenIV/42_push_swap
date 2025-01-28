@@ -44,10 +44,13 @@ void		free_stack(t_stack **stack);
 void		free_argv(char **argv);
 void		free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2);
 
-// Stack tools
+// Stack/node tools
 void		print_stack(t_stack *stack);			// --> for testing
-t_stack		*new_node(int value);					// --> for testing
-void		push_node(t_stack **stack, int value);	// --> for testing
+t_stack		*create_new_node(int value);					// --> for testing
+t_stack		*get_last_node(t_stack	*head_node);
+void		push_to_top_node(t_stack **stack, int value);
+void	push_to_bottom_node(t_stack **stack, int value);
+
 
 // Algos
 
