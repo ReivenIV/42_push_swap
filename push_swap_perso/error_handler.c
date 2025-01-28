@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-//* Will check src is a (char*)number. 
+//* Will check src is a (char*)numbers. 
 // if valid, TRUE/1
 // if not valid, FALSE/0
-int	check_syntax(char* src) // error_syntax 
+int	is_syntax_correct(char* src) // error_syntax 
 {
 	int i;
 	
