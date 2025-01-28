@@ -132,3 +132,46 @@ void	push_to_bottom_node(t_stack **stack, int value)
 // //     return 0;
 // // }
 
+//* Will run throught all the stack and check the if the stack is in ascending order.
+// output TRUE(1) / FALSE(0).
+int	is_stack_sorted(t_stack *stack)
+{
+	if (stack == NULL)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)				// if current_node is bigger to the next node. then we are not in an ascending stack.
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+
+// Test function for is_stack_sorted
+// // int main(void) {
+// //     t_stack *stack = NULL;
+// //     // Create a sorted stack
+// //     push_to_bottom_node(&stack, 1);
+// //     push_to_bottom_node(&stack, 2000);
+// //     push_to_bottom_node(&stack, 3);
+// //     if (is_stack_sorted(stack)) {
+// //         printf("Test 1 :: Stack is sorted.\n");
+// //     } else {
+// //         printf("Test 1 :: Stack is not sorted.\n");
+// //     }
+// //     // Free the stack
+// //     free_stack(&stack);
+// //     // Create an unsorted stack
+// //     stack = NULL;
+// //     push_to_bottom_node(&stack, 3000);
+// //     push_to_bottom_node(&stack, 40000);
+// //     push_to_bottom_node(&stack, 666666);
+// //     if (!is_stack_sorted(stack)) {
+// //         printf("Test 2 :: Stack is not sorted.\n");
+// //     } else {
+// //         printf("Test 2 :: Stack is sorted.\n");
+// //     }
+// //     // Free the stack
+// //     free_stack(&stack);
+// //     return 0;
+// // }
