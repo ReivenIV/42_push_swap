@@ -12,6 +12,8 @@ references
 # Executables
 *.out
 *.exe
+test
+test.*
 
 # Temp files
 *.swp
