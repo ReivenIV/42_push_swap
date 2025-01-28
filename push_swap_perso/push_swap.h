@@ -28,7 +28,7 @@ typedef struct s_stack
 //	bool			above_median;
 //	bool			cheapest;
 //	struct s_stack	*target_node;
-	struct s_stack	*previous;
+	struct s_stack	*prev;
 	struct s_stack	*next;
 }	t_stack;
 

@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-
 //* Will check src is a (char*)number. 
 // if valid, TRUE/1
 // if not valid, FALSE/0
