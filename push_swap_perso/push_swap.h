@@ -52,6 +52,7 @@ t_stack		*create_new_node(int value);					// --> for testing
 t_stack		*get_last_node(t_stack	*head_node);
 void		push_to_top_node(t_stack **stack, int value);
 void		push_to_bottom_node(t_stack **stack, int value);
+int			is_stack_sorted(t_stack *stack);
 
 
 // Algos
