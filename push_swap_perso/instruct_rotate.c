@@ -22,9 +22,7 @@
 		(*stack)->next->next	:: the thirth node dereferenced.
 */
 
-
-// rotate ex :
-// stack = "1,2,3" => rotate_stack(stack) => "2,3,1"
+// rotate ex : stack = "1,2,3" => rotate_stack(stack) => "2,3,1"
 // remember the instructions are mainly aimed to handlefor 3 nodes.
 static void	rotate_stack(t_stack **stack)
 {
@@ -47,7 +45,7 @@ static void	rotate_stack(t_stack **stack)
 	old_first_node->prev = last_node;			// old-first-node now next point to old-last-node
 	old_first_node->next = NULL;				// old-first-node 
 }
-// testing_mode : if we are testing the P.S. algo we can aboid printing 
+// ..testing_mode.. : if we are testing the P.S. algo we can aboid printing 
 // every comand. it's a way to reduce noise in the terminal.
 void	ra(t_stack **a, bool testing_mode)
 {
