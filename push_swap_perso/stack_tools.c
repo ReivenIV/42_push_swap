@@ -24,6 +24,7 @@ void print_stack(t_stack *stack)  			//! FOR TESTING ONLY
     t_stack *current;
 
 	current = stack;
+	printf("stack :: ");
     while (current != NULL)
     {
         printf("%d ", current->value);		//! PRINTF
