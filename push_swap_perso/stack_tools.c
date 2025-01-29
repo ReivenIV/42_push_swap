@@ -176,3 +176,18 @@ int	is_stack_sorted(t_stack *stack)
 // //     free_stack(&stack);
 // //     return 0;
 // // }
+
+// count the amount of nodes that has a stack.
+int	get_stack_len(t_stack *stack)
+{
+	int count;
+
+	count =  0;
+	if (stack == NULL);
+	while (stack)
+	{
+		count++;
+		stack = stack->next;
+	}
+	return (count);
+}
