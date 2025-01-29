@@ -15,15 +15,26 @@
 			- [x] leaks handling.
 			- [x] create stack A.
 			- [x] add all values to stack A.
-	- [ ] Create instructions: 
-		- [ ] something.
-		- [ ] something.
-		- [ ] something.
-		- [ ] something.
-		- [ ] something.
-	- [ ] Check if stack A is organised
+	- [ ] Create instructions:
+		- [ ] Swap
+			- [ ] sa
+			- [ ] sb
+			- [ ] ss
+		- [ ] Push
+			- [ ] pa	
+			- [ ] pb
+		- [ ] Reverse
+			- [ ] ra
+			- [ ] rb
+			- [ ] rr
+		- [ ] Reverse Rotate:
+			- [ ] rra
+			- [ ] rrb
+			- [ ] rrr
+	- [ ] Check if stack A is organised:
+		- [x] create function that check if the stack is organized in ascending order.
 		- if yes return stack A -> end of program baby!! .
-		- if not organised :
+		- if not organised "hell on earth":
 			- [ ] if 2 :
 				- swap
 				- end of program
