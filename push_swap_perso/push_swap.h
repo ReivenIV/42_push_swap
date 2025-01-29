@@ -40,22 +40,29 @@ void		stack_init(t_stack **stack_a, char **argv, bool is_argc_2);
 
 
 // Error handling
-int			is_syntax_correct(char* src);									// return BOOl.
-int			is_nb_in_stack(t_stack *a, int nb);								// return BOOl.
+int			is_syntax_correct(char* src);					// return BOOl.
+int			is_nb_in_stack(t_stack *a, int nb);				// return BOOl.
 void		free_stack(t_stack **stack);
 void		free_argv(char **argv);
 void		free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2);
 
 // Stack/node tools
-void		print_stack(t_stack *stack);					// --> for testing
-t_stack		*create_new_node(int value);					// --> for testing
+void		print_stack(t_stack *stack);					//! --> for testing
+t_stack		*create_new_node(int value);					
 t_stack		*get_last_node(t_stack	*head_node);
 void		push_to_top_node(t_stack **stack, int value);
 void		push_to_bottom_node(t_stack **stack, int value);
 int			is_stack_sorted(t_stack *stack);
+int			get_stack_len(t_stack *stack);
 
+//   --------------------
+//   ::  Instructions  :: 
+//   --------------------
+// Rotate: 
+void	ra(t_stack **a, bool testing_mode);
+void	rb(t_stack **b, bool testing_mode);
+void	rr(t_stack **a, t_stack **b, bool testing_mode);
 
-// Algos
 
 // XS algo
 
