@@ -1,5 +1,6 @@
 references
 comands.txt
+*.gch
 # System files
 .DS_Store
 
