@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 // rotate ex : stack = "1,2,3,4,5" => rotate_stack(stack) => "5,1,2,3,4"
-static void rotate_reverse_stack(t_stack **stack)
+static	void rotate_reverse_stack(t_stack **stack)
 {
 	t_stack *current_node;
 	int		stack_len;
@@ -28,6 +28,31 @@ static void rotate_reverse_stack(t_stack **stack)
 	current_node->next->prev = current_node;				// second node-> points to New first node;
 }
 
+void	rra(t_stack **a, bool testing_mode)
+{
+	rotate_reverse_stack(*a);
+	if (!testing_mode)
+		write(1, "rra\n", 4);
+}
+
+void	rrb(t_stack **b, bool testing_mode)
+{
+	rotate_reverse_stack(*b);
+	if (!testing_mode)
+		write(1, "rrb\n", 4);
+}
+
+void	rrr(t_stack **a, t_stack **b, bool testing_mode)
+{
+	rotate_reverse_stack(*a);
+	rotate_reverse_stack(*b);
+	if (!testing_mode)
+		write(1, "rrr\n", 4);
+}
+
+//   ---------------------
+//   ::  test it dear   :: 
+//   ---------------------
 // // int main(void)
 // // {
 // // 	t_stack *stack = NULL;
