@@ -70,6 +70,9 @@ void	rrr(t_stack **a, t_stack **b, bool testing_mode);
 void	sa(t_stack **a, bool testing_mode);
 void	sb(t_stack **b, bool testing_mode);
 void	ss(t_stack **a, t_stack **b, bool testing_mode);
+// Push
+void	pa(t_stack **b, t_stack **a, bool testing_mode);
+void	pb(t_stack **a, t_stack **b, bool testing_mode);
 
 // XS algo
 
