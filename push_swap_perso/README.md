@@ -20,17 +20,17 @@
 			- [x] sa
 			- [x] sb
 			- [x] ss
+		- [x] Push
+			- [x] pa	
+			- [x] pb
 		- [x] Reverse
 			- [x] ra
 			- [x] rb
 			- [x] rr
-		- [ ] Push
-			- [ ] pa	
-			- [ ] pb
-		- [ ] Reverse Rotate:
-			- [ ] rra
-			- [ ] rrb
-			- [ ] rrr
+		- [x] Reverse Rotate:
+			- [x] rra
+			- [x] rrb
+			- [x] rrr
 	- [ ] Check if stack A is organised:
 		- [x] create function that check if the stack is organized in ascending order.
 		- if yes return stack A -> end of program baby!! .
@@ -38,6 +38,7 @@
 			- [ ] if 2 :
 				- swap
 				- end of program
+			- [ ] if 5  ??
 			- [ ] use cases : stack A <= 3 nodes
 				- XS algo.
 			- [ ] if stack A > 3 nodes.
