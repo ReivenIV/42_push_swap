@@ -14,7 +14,7 @@
 // to visualize the instructions i recomend these article: 
 // https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
 /*
-	Notes: 
+	Notes:
 		**stack 				:: is stack_a or stack_b completly.
 		(*stack)				:: is the first node dereferenced.
 		(*stack)->next			:: the second node dereferenced.
@@ -26,7 +26,7 @@
 static void	rotate_stack(t_stack **stack)
 {
 	t_stack	*old_first_node;
-	t_stack	*last_node;
+	t_stack	*old_last_node;
 	int		stack_len;
 
 	stack_len = get_stack_len(*stack);
@@ -34,15 +34,15 @@ static void	rotate_stack(t_stack **stack)
 		return ;
 
 	old_first_node = (*stack);
-	last_node = get_last_node(*stack);
+	old_last_node = get_last_node(*stack);
 	
-	last_node->next = old_first_node;			// we point the last node to the old-first-node
+	old_last_node->next = old_first_node;			// we point the last node to the old-first-node
 
-	(*stack) = (*stack)->next;					// refresh/update stack. Second node now is the first one.
-	(*stack)->prev = NULL;						// the second newly the first one now. We refresh/update prev data to NULL because now is the new head of the stack.
+	(*stack) = (*stack)->next;						// refresh/update stack. Second node now is the first one.
+	(*stack)->prev = NULL;							// the second newly the first one now. We refresh/update prev data to NULL because now is the new head of the stack.
 	
-	old_first_node->prev = last_node;			// old-first-node now next point to old-last-node
-	old_first_node->next = NULL;				// old-first-node 
+	old_first_node->prev = old_last_node;			// old-first-node now next point to old-last-node
+	old_first_node->next = NULL;					// old-first-node 
 }
 // ..testing_mode.. : if we are testing the P.S. algo we can aboid printing 
 // every comand. it's a way to reduce noise in the terminal.
