@@ -62,7 +62,14 @@ int			get_stack_len(t_stack *stack);
 void	ra(t_stack **a, bool testing_mode);
 void	rb(t_stack **b, bool testing_mode);
 void	rr(t_stack **a, t_stack **b, bool testing_mode);
-
+// Reverse-rotate
+void	rra(t_stack **a, bool testing_mode);
+void	rrb(t_stack **b, bool testing_mode);
+void	rrr(t_stack **a, t_stack **b, bool testing_mode);
+// Swap
+void	sa(t_stack **a, bool testing_mode);
+void	sb(t_stack **b, bool testing_mode);
+void	ss(t_stack **a, t_stack **b, bool testing_mode);
 
 // XS algo
 
