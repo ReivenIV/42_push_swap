@@ -16,17 +16,17 @@
 			- [x] create stack A.
 			- [x] add all values to stack A.
 	- [ ] Create instructions:
-		- [ ] Swap
-			- [ ] sa
-			- [ ] sb
-			- [ ] ss
+		- [x] Swap
+			- [x] sa
+			- [x] sb
+			- [x] ss
+		- [x] Reverse
+			- [x] ra
+			- [x] rb
+			- [x] rr
 		- [ ] Push
 			- [ ] pa	
 			- [ ] pb
-		- [ ] Reverse
-			- [ ] ra
-			- [ ] rb
-			- [ ] rr
 		- [ ] Reverse Rotate:
 			- [ ] rra
 			- [ ] rrb
