@@ -23,7 +23,7 @@
 
 // rotate ex : stack = "1,2,3" => rotate_stack(stack) => "2,3,1"
 // remember the instructions are mainly aimed to handlefor 3 nodes.
-static void	rotate_stack(t_stack **stack)
+static	void rotate_stack(t_stack **stack)
 {
 	t_stack	*old_first_node;
 	t_stack	*old_last_node;
@@ -39,7 +39,7 @@ static void	rotate_stack(t_stack **stack)
 	old_last_node->next = old_first_node;			// we point the last node to the old-first-node
 
 	(*stack) = (*stack)->next;						// refresh/update stack. Second node now is the first one.
-	(*stack)->prev = NULL;							// the second newly the first one now. We refresh/update prev data to NULL because now is the new head of the stack.
+	(*stack)->prev = NULL;							// the old-second newly the first one now. We refresh/update prev data to NULL because now is the new head of the stack.
 	
 	old_first_node->prev = old_last_node;			// old-first-node now next point to old-last-node
 	old_first_node->next = NULL;					// old-first-node 
@@ -67,29 +67,36 @@ void	rr(t_stack **a, t_stack **b, bool testing_mode)
 		write(1, "rr\n", 3);
 }
 
-// // int main(void)
-// // {
-// //     t_stack *stack = NULL;
-// //     // Add some nodes to the stack
-// //     push_to_bottom_node(&stack, 1);
-// //     push_to_bottom_node(&stack, 2);
-// //     push_to_bottom_node(&stack, 3);
-// //     // Print the stack before rotation
-// //     printf("Stack before rotation: ");
-// //     print_stack(stack);
-// //     // Rotate the stack
-// //     rotate_stack(&stack);
-// //     // Print the stack after rotation
-// //     printf("Stack after rotation: ");
-// //     print_stack(stack);
-// //     // Free the stack (for good practice)
-// //     t_stack *current = stack;
-// //     t_stack *next;
-// //     while (current)
-// //     {
-// //         next = current->next;
-// //         free(current);
-// //         current = next;
-// //     }
-// //     return 0;
-// // }
+//   ---------------------
+//   ::  test it dear   :: 
+//   ---------------------
+// int main(void)
+// {
+//     t_stack *stack = NULL;
+//     // Add some nodes to the stack
+//     push_to_bottom_node(&stack, 1);
+//     push_to_bottom_node(&stack, 2);
+//     push_to_bottom_node(&stack, 3);
+//     push_to_bottom_node(&stack, 4);
+//     push_to_bottom_node(&stack, 5);
+//     push_to_bottom_node(&stack, 6);
+//     push_to_bottom_node(&stack, 7);
+//     // Print the stack before rotation
+//     printf("Stack before rotation: ");
+//     print_stack(stack);
+//     // Rotate the stack
+//     rotate_stack(&stack);
+//     // Print the stack after rotation
+//     printf("Stack after rotation: ");
+//     print_stack(stack);
+//     // Free the stack (for good practice)
+//     t_stack *current = stack;
+//     t_stack *next;
+//     while (current)
+//     {
+//         next = current->next;
+//         free(current);
+//         current = next;
+//     }
+//     return 0;
+// }

@@ -58,7 +58,9 @@ void	ss(t_stack **a, t_stack **b, bool testing_mode)
 		write(1, "ss\n", 3);
 }
 
-
+//   ---------------------
+//   ::  test it dear   :: 
+//   ---------------------
 // // int main(void)
 // // {
 // //     t_stack *stack = NULL;
