@@ -38,11 +38,15 @@
 			- [ ] if 2 :
 				- swap
 				- end of program
-			- [ ] if 5  ??
-			- [ ] use cases : stack A <= 3 nodes
-				- XS algo.
+			- [ ] if 3. I will call it the XS:
+				- there are only 5 ways to do 
+			- [ ] if 4 :
+				- push 1 then XS algo
+			- [ ] if 5 :
+				- push 2 then XS algo
+				- Something more
 			- [ ] if stack A > 3 nodes.
-				- XXL algo.
+				- XL algo.
 ---
 # Parsing :
 
