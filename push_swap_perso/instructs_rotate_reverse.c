@@ -30,22 +30,22 @@ static	void rotate_reverse_stack(t_stack **stack)
 
 void	rra(t_stack **a, bool testing_mode)
 {
-	rotate_reverse_stack(*a);
+	rotate_reverse_stack(a);
 	if (!testing_mode)
 		write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack **b, bool testing_mode)
 {
-	rotate_reverse_stack(*b);
+	rotate_reverse_stack(b);
 	if (!testing_mode)
 		write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack **a, t_stack **b, bool testing_mode)
 {
-	rotate_reverse_stack(*a);
-	rotate_reverse_stack(*b);
+	rotate_reverse_stack(a);
+	rotate_reverse_stack(b);
 	if (!testing_mode)
 		write(1, "rrr\n", 4);
 }
