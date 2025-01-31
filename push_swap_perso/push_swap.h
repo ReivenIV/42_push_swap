@@ -32,6 +32,10 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+// Tools for testing :
+void print_argv(char **av);									//! --> for testing
+
+
 // Tools  
 //* Parsing
 char		**ft_split(char const *src);

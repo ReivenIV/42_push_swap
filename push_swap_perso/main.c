@@ -12,6 +12,16 @@
 
 #include "push_swap.h"
 
+void print_argv(char **av)
+{
+    int i = 0;
+    while (av[i] != NULL)
+    {
+        printf("argv[%d]: %s\n", i, av[i]);
+        i++;
+    }
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*a;
@@ -23,11 +33,15 @@ int	main(int ac, char **av)
 		return (1);
 	else if (ac == 2)
 		av = ft_split(av[1]);
-	stack_init(&a, av, ac == 2); 				//! av + 1 ?
+	print_argv(av);							//! just for testing	
+	stack_init(&a, av + 1, ac == 2); 				// av + 1 ?
 	print_stack(a);								//! just for testing
 	if (!is_stack_sorted(a))
-		printf("error, not sorted");
-	if (is_stack_sorted(a))
-		printf("Stack sorted");
+	{
+		if (get_stack_len(a) == 2)
+			sa(&a, false);
+	}
+	print_stack(a);								//! just for testing
+
 	return (0);
 }
