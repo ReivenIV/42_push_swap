@@ -49,14 +49,6 @@
 				- XL algo.
 ---
 
-/*
- Hay un problema entre 
-./a.out 45 85 ---> que funciona. 
-./a.out "45 85" ---> que no funciona
-	hay un core domped osea que un loop esta queriendo ir mas lejos. 
-	pude ver que el problema viene del loop the stack_init. Yo recomendaria no pushear clonar el proyecto y testear las dos versiones porque en la otra version funciona ac== 2 pero no los ac random no. Y viceversa cuando me puse a mejorar esta version empezaron los problemas con ac==2 pero ac random funcionan.
-*/
-
 # Parsing :
 
 	## stack init
@@ -65,6 +57,7 @@
 				- [x] We check every string. If in any case there is a bug like ::	  non nbs +/-           -> error
 				- If everything is in good shape we atol everything
 					- [x] we will need atol (atoi but with a long int to handle INT_MIN/MAX)
+					- [ ] edge case if the given number to atol has more than 10 digits then ERROR       <!--TODO handle error  -->   
 				- [x] We check every string. If in any case there is a bug like ::	  int_min  / int_max    -> error
 				- [x] We check every string. If in any case there is a bug like ::	  nbs repetitions		-> error
 				- [x] we create / append a new node in the stack A.

@@ -43,6 +43,8 @@ int	main(int ac, char **av)
 	{
 		if (get_stack_len(a) == 2)
 			sa(&a, false);
+		else if (get_stack_len(a) == 3)
+			xs_algo(&a);
 	}
 	free_stack(&a);
 	return (0);

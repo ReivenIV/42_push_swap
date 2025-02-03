@@ -59,10 +59,10 @@ void		push_to_bottom_node(t_stack **stack, int value);
 int			is_stack_sorted(t_stack *stack);
 int			get_stack_len(t_stack *stack);
 
-//   --------------------
-//   ::  Instructions  :: 
-//   --------------------
-// Rotate: 
+//		--------------------
+//		::  Instructions  ::
+//		--------------------
+// Rotate:
 void	ra(t_stack **a, bool testing_mode);
 void	rb(t_stack **b, bool testing_mode);
 void	rr(t_stack **a, t_stack **b, bool testing_mode);
@@ -78,9 +78,16 @@ void	ss(t_stack **a, t_stack **b, bool testing_mode);
 void	pa(t_stack **b, t_stack **a, bool testing_mode);
 void	pb(t_stack **a, t_stack **b, bool testing_mode);
 
+//		------------
+//		::  Algos ::
+//		------------
 // XS algo
+t_stack	*get_h_node(t_stack *stack);
+t_stack	*get_s_node(t_stack *stack);
 
 // XL Algo
+void	xs_algo(t_stack **a);
+
 
 
 #endif
