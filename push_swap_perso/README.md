@@ -48,6 +48,15 @@
 			- [ ] if stack A > 3 nodes.
 				- XL algo.
 ---
+
+/*
+ Hay un problema entre 
+./a.out 45 85 ---> que funciona. 
+./a.out "45 85" ---> que no funciona
+	hay un core domped osea que un loop esta queriendo ir mas lejos. 
+	pude ver que el problema viene del loop the stack_init. Yo recomendaria no pushear clonar el proyecto y testear las dos versiones porque en la otra version funciona ac== 2 pero no los ac random no. Y viceversa cuando me puse a mejorar esta version empezaron los problemas con ac==2 pero ac random funcionan.
+*/
+
 # Parsing :
 
 	## stack init
