@@ -52,5 +52,7 @@ int	main(int ac, char **av)
 			sa(&a, false);
 	}
 	print_stack(a);									//! just for testing
+	free_stack(&a);
+
 	return (0);
 }
