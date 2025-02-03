@@ -145,9 +145,11 @@ char	**ft_split(char const *src)
 		return (NULL);
 	src_count_words = count_words(src);
 	dest = (char **)malloc(sizeof(char *) * (src_count_words + 1));
-	if (!dest)
+	if (dest == NULL)
 		return (NULL);
 	dest = splitter(src, dest, src_count_words);
+	if (dest == NULL)
+		return (NULL);
 	return (dest);
 }
 

@@ -52,9 +52,10 @@ void	stack_init(t_stack **stack_a, char **av, bool is_argc_2)
 		push_to_bottom_node(stack_a, (int)l_nbr);					// if all checks are passed. We add a new node to the end of the stack. (remember the stack is under construction)
 		i++;
 	}
-	if (is_argc_2)													// in case if is_argc_2 == TRUE(1) we free av to avoid leaks.
+	if (is_argc_2 == true)													// in case if is_argc_2 == TRUE(1) we free av to avoid leaks.
 	{
-		free_argv(av, true);
+		free(av);
+		//free_argv(av, true);
 	}
 	// // else
 	// // 	free_argv(av, false);
