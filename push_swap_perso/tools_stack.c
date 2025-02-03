@@ -83,8 +83,6 @@ void push_to_top_node(t_stack **stack, int value)
 // ex: Stack : (1,2,3)   to add : 40  ==>  Stack : (1,2,3,40)
 void	push_to_bottom_node(t_stack **stack, int value)     
 {
-	printf("3test\n");
-
 	t_stack	*new_node;
 	t_stack	*old_last_node;
 

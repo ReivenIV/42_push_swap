@@ -158,23 +158,23 @@ void	free_stack(t_stack **stack)
 void	free_argv(char **av, bool is_ac_2)			// free_matrix
 {
 	int i;
-
-	//i = -1;							//!	not sure why -1
-	i = -1;	
-	if (is_ac_2 == true)
-		i = 0;
+	i = 0;							//!	not sure why -1
+	// if (is_ac_2 == true)
+	// 	i = 0;
+	// else if (is_ac_2 == false)
+	// 	i = -1;
 	while(av[i])
 	{
 		free(av[i]);
 		i++;
 	}
-	if (is_ac_2 == true)
-	{
-		free(av);
-		return ;
-	}
-	else
-		free(av -1);
+	// // if (is_ac_2 == true)
+	// // {
+	// // 	printf("test free_argv\n");
+	// // 	//printf("free_argv: %s \n", av);
+	// // 	print_argv(av);								//! just for testing
+	// // 	free(av);
+	// // }
 }
 
 //* test free_argv (you will need to test it with valgrind)

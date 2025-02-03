@@ -36,8 +36,9 @@ int	main(int ac, char **av)
 
 		av = ft_split(av[1]);
 		//printf("%s", av[0]);
+		//printf("inside the if test\n");
 
-		stack_init(&a, av, ac == 2);
+		stack_init(&a, av, true);
 	}
 	else
 		stack_init(&a, av + 1, false); 				// av + 1 ?

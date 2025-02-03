@@ -31,23 +31,33 @@ void	stack_init(t_stack **stack_a, char **av, bool is_argc_2)
 	int		i;
 
 	i = 0;
-	print_argv(av);								//! just for testing
+	//print_argv(av);								//! just for testing
+	// printf("stack_init: START\n");
+	// print_argv(av);								//! just for testing
+	// printf("stack_init: END \n");
 	while (av[i] != NULL)
 	{
-	printf("test\n");
 		if (!is_syntax_correct(av[i]))							// Do we have only nbrs ?
+		{
 			free_handler(stack_a, av, is_argc_2);
+		}
 	
-		l_nbr = ft_atol(av[i]);									// Because we have only numbers atol every single s***			
+		l_nbr = ft_atol(av[i]);										// Because we have only numbers atol every single s***
+		////printf("%li\n", l_nbr);
 		if (l_nbr > INT_MAX || l_nbr < INT_MIN)						// check if we have bigger or smaller than INT_MIN/MAX
 			free_handler(stack_a, av, is_argc_2);
+
 		if (is_nb_in_stack(*stack_a, (int)l_nbr))					// check repetitions. Remember these will check every time we add want to add a number. Is not checkin all the existing stack
 			free_handler(stack_a, av, is_argc_2);					
 		push_to_bottom_node(stack_a, (int)l_nbr);					// if all checks are passed. We add a new node to the end of the stack. (remember the stack is under construction)
 		i++;
 	}
 	if (is_argc_2)													// in case if is_argc_2 == TRUE(1) we free av to avoid leaks.
+	{
 		free_argv(av, true);
+	}
+	// // else
+	// // 	free_argv(av, false);
 }																	// Rock it baby
 
 
