@@ -155,19 +155,26 @@ void	free_stack(t_stack **stack)
 // // }
 
 //* Will free all elements in argv
-void	free_argv(char **argv)			// free_matrix
+void	free_argv(char **av, bool is_ac_2)			// free_matrix
 {
 	int i;
 
 	//i = -1;							//!	not sure why -1
-	i = 0;								//!	updated to 0
-	while(argv[i])
+	i = -1;	
+	if (is_ac_2 == true)
+		i = 0;
+	while(av[i])
 	{
-		free(argv[i]);
+		free(av[i]);
 		i++;
 	}
-	// free(argv - 1);					//! not sure why (argv - 1)
-	free(argv);
+	if (is_ac_2 == true)
+	{
+		free(av);
+		return ;
+	}
+	else
+		free(av -1);
 }
 
 //* test free_argv (you will need to test it with valgrind)
@@ -200,8 +207,9 @@ void	free_argv(char **argv)			// free_matrix
 void	free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2) //  error_free
 {
 	free_stack(a_or_b);
+
 	if (flag_argc_2)
-		free_argv(argv);
+		free_argv(argv, true);
 	write(2, "Error\n", 6);
 	exit(1);
 }
