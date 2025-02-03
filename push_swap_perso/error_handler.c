@@ -47,7 +47,6 @@ int	is_syntax_correct(char* src) // error_syntax
 // //     char *test5 = "+-123";
 // //     char *test6 = "";
 // //     char *test7 = NULL;
-
 // //     printf("Test 1: %s -> %d\n", test1, syntax_check(test1)); // Expected: 1
 // //     printf("Test 2: %s -> %d\n", test2, syntax_check(test2)); // Expected: 1
 // //     printf("Test 3: %s -> %d\n", test3, syntax_check(test3)); // Expected: 1
@@ -55,7 +54,6 @@ int	is_syntax_correct(char* src) // error_syntax
 // //     printf("Test 5: %s -> %d\n", test5, syntax_check(test5)); // Expected: 0
 // //     printf("Test 6: %s -> %d\n", test6, syntax_check(test6)); // Expected: 0
 // //     printf("Test 7: %s -> %d\n", test7, syntax_check(test7)); // Expected: 0
-
 // //     return 0;
 // // }
 
@@ -128,53 +126,40 @@ void	free_stack(t_stack **stack)
 // // void test_free_stack()
 // // {
 // // 	t_stack *stack = NULL;
-
 // // 	// Create a stack with some values
 // // 	push_node(&stack, 3);
 // // 	push_node(&stack, 2);
 // // 	push_node(&stack, 1);
-
 // // 	// Print the stack before freeing
 // // 	printf("Stack before freeing: ");
 // // 	print_stack(stack);
-
 // // 	// Free the stack
 // // 	free_stack(&stack);
-
 // // 	// Check if the stack is NULL after freeing
 // // 	if (stack == NULL)
 // // 		printf("Stack successfully freed.\n");
 // // 	else
 // // 		printf("Stack not freed properly.\n");
 // // }
-
 // // int main(void)
 // // {
 // // 	test_free_stack();
 // // 	return 0;
 // // }
 
-//* Will free all elements in argv
-void	free_argv(char **av, bool is_ac_2)			// free_matrix
+//* Will free all elements in argv and argv itself
+void	free_argv(char **av, bool is_ac_2)			// free_matrix argv
 {
 	int i;
-	i = 0;							//!	not sure why -1
-	// if (is_ac_2 == true)
-	// 	i = 0;
-	// else if (is_ac_2 == false)
-	// 	i = -1;
-	while(av[i])
+
+	i = 0;
+	while(av[i])									// Will free each string inside of argv but will not free argv it self
 	{
 		free(av[i]);
 		i++;
 	}
-	// // if (is_ac_2 == true)
-	// // {
-	// // 	printf("test free_argv\n");
-	// // 	//printf("free_argv: %s \n", av);
-	// // 	print_argv(av);								//! just for testing
-	// // 	free(av);
-	// // }
+	if (is_ac_2 == true)							// in case argc was only 2 (meaning a long string at argv[1]) after freeing each element in argv we free argv
+		free(av);
 }
 
 //* test free_argv (you will need to test it with valgrind)
@@ -228,15 +213,12 @@ void	free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2) //  error_fre
 // //     stack->next->current_position = 1;
 // //     stack->next->previous = stack;
 // //     stack->next->next = NULL;
-
 // //     // Create a simple argv array for testing
 // //     char **argv = malloc(3 * sizeof(char *));
 // //     argv[0] = strdup("arg1");
 // //     argv[1] = strdup("arg2");
 // //     argv[2] = NULL;
-
 // //     // Call the free_handler function
 // //     free_handler(&stack, argv, true);
-
 // //     return 0;
 // // }

@@ -29,28 +29,21 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))				// if ac doesn't have arguments or If ac has arguments but av is empty
+	if (ac == 1 || (ac == 2 && !av[1][0]))				// if ac doesn't have arguments or If ac has arguments but av[1] is empty
 		return (1);
 	else if (ac == 2)
 	{
 		av = ft_split(av[1]);
-		//printf("%s", av[0]);
-		//printf("inside the if test\n");
-
 		stack_init(&a, av, true);
 	}
 	else
 		stack_init(&a, av + 1, false); 					// av + 1 ?
 
-	//print_stack(a);									//! just for testing
 	if (!is_stack_sorted(a))
 	{
 		if (get_stack_len(a) == 2)
 			sa(&a, false);
 	}
-	// print_stack(a);									//! just for testing
 	free_stack(&a);
-
-
 	return (0);
 }
