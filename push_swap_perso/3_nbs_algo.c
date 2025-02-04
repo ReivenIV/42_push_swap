@@ -16,7 +16,7 @@
 	b_node = bigger / highest node value;
 	s_node = smallest node value;
 */
-void	xs_algo(t_stack **a)
+void	sort_three_nbs(t_stack **a)
 {
 	t_stack	*b_node;
 	t_stack	*s_node;

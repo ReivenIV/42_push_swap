@@ -43,7 +43,9 @@ int	main(int ac, char **av)
 		if (get_stack_len(a) == 2)
 			sa(&a, false);
 		else if (get_stack_len(a) == 3)
-			xs_algo(&a);
+			sort_three_nbs(&a);
+		//else if (get_stack_len(a) > 3)
+			//push_swap and we handle 4 & 5 and infinit inside 
 	}
 	free_stack(&a);
 }

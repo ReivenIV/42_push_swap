@@ -86,7 +86,7 @@ t_stack	*get_h_node(t_stack *stack);
 t_stack	*get_s_node(t_stack *stack);
 
 // XL Algo
-void	xs_algo(t_stack **a);
+void	sort_three_nbs(t_stack **a);
 
 
 
