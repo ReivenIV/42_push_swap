@@ -38,7 +38,6 @@ int	main(int ac, char **av)
 	}
 	else
 		stack_init(&a, av + 1, false); 					// av + 1 ?
-
 	if (!is_stack_sorted(a))
 	{
 		if (get_stack_len(a) == 2)
@@ -47,5 +46,4 @@ int	main(int ac, char **av)
 			xs_algo(&a);
 	}
 	free_stack(&a);
-	return (0);
 }
