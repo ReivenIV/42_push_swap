@@ -22,12 +22,12 @@
 typedef struct s_stack
 {
 	int				value;
-	int				id;
-	bool			above_median;
+	int				id;									// current order of nodes (will be updated in every move)
+	bool			above_median;						// in the stack is it above the the middle of the stack ? 
 // //	int				final_index;
-	int				push_price;
-	bool			cheapest;
-	struct s_stack	*target_node;
+	int				push_price;							// aprox how many moves will be needed to move the node
+	bool			cheapest;							// is it the cheapest node to be moved ? 
+	struct s_stack	*target_node;						// the best possible following node
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }	t_stack;
