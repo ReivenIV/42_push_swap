@@ -43,6 +43,11 @@ t_stack *create_new_node(int value)
     if (node == NULL)
         return NULL;
     node->value = value;
+	node->id = -1;
+	node->above_median = NULL;
+	node->push_price = -1;
+	node->cheapest = NULL;
+	node->target_node = NULL;
     node->next = NULL;
     node->prev = NULL;
     return node;
@@ -191,3 +196,26 @@ int	get_stack_len(t_stack *stack)
 	}
 	return (count);
 }
+
+// Will add update "current_position" & "above_median" in given stack.
+void	update_index(t_stack	*stack)
+{
+	int i;
+	int	avg_middle;
+
+	if (stack == NULL)
+		return ;
+	i = 0;
+	avg_middle = get_stack_len(stack) / 2;
+	while (stack)
+	{
+		stack->id = i;
+		if (i <= avg_middle)
+			stack->id = true;
+		else
+			stack->id = false;
+		stack = stack->next;
+	}
+}
+
+// TODO : refresh_nodes_data
