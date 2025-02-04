@@ -35,29 +35,37 @@ typedef struct s_stack
 // Tools for testing :
 void print_argv(char **av);									//! --> for testing
 
-
 // Tools  
 //* Parsing
-char		**ft_split(char const *src);
-long		ft_atol(const char *src);
-void		stack_init(t_stack **stack_a, char **argv, bool is_argc_2);
-
+char	**ft_split(char const *src);
+long	ft_atol(const char *src);
+void	stack_init(t_stack **stack_a, char **argv, bool is_argc_2);
 
 // Error handling
-int			is_syntax_correct(char* src);					// return BOOl.
-int			is_nb_in_stack(t_stack *a, int nb);				// return BOOl.
-void		free_stack(t_stack **stack);
-void		free_argv(char **argv, bool is_ac_2);
-void		free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2);
+int		is_syntax_correct(char* src);					// return BOOl.
+int		is_nb_in_stack(t_stack *a, int nb);				// return BOOl.
+void	free_stack(t_stack **stack);
+void	free_argv(char **argv, bool is_ac_2);
+void	free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2);
 
-// Stack/node tools
-void		print_stack(t_stack *stack);					//! --> for testing
-t_stack		*create_new_node(int value);					
-t_stack		*get_last_node(t_stack	*head_node);
-void		push_to_top_node(t_stack **stack, int value);
-void		push_to_bottom_node(t_stack **stack, int value);
-int			is_stack_sorted(t_stack *stack);
-int			get_stack_len(t_stack *stack);
+//		-------------
+//		::  tools  ::
+//		-------------
+// tools Stack-node
+void	print_stack(t_stack *stack);					//! --> for testing
+t_stack	*create_new_node(int value);					
+t_stack	*get_last_node(t_stack	*head_node);
+void	push_to_top_node(t_stack **stack, int value);
+void	push_to_bottom_node(t_stack **stack, int value);
+int		is_stack_sorted(t_stack *stack);
+int		get_stack_len(t_stack *stack);
+
+// tools in stack-nodes-data
+void	refresh_ids(t_stack	*stack);
+void	refresh_targets_node(t_stack *stack_a, t_stack *stack_b);
+void	set_prices(t_stack *a, t_stack *b);
+void	flag_cheapest(t_stack *b);
+void	refresh_nodes_data(t_stack *a, t_stack *b);
 
 //		--------------------
 //		::  Instructions  ::
