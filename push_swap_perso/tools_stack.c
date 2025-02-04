@@ -13,6 +13,7 @@
 #include "push_swap.h"
 
 /*
+	::  Gentle reminder  :: 
 	- *stack			 :: is a pointer to the top node of the stack.
 	- (*stack)			 :: dereferences this pointer to access the actual node.
 	- (*stack)->previous :: accesses the previous pointer of this node.
@@ -189,6 +190,7 @@ int	get_stack_len(t_stack *stack)
 
 	count =  0;
 	if (stack == NULL);
+		return (NULL);
 	while (stack)
 	{
 		count++;
