@@ -24,20 +24,20 @@ void	xs_algo(t_stack **a)
 	b_node = get_h_node(*a);
 	s_node = get_s_node(*a);
 
-	if ((*a) == b_node && (*a)->next == s_node) 		// ex: a= [3, 2, 1]
+	if ((*a) == b_node && (*a)->next == s_node) 						// ex: a= [3, 1, 2]
+		ra(a, false);
+	else if ((*a) == b_node && (*a)->next != s_node)					// ex: a= [3, 2, 1]
 	{
 		sa(a, false);
 		rra(a, false);
 	}
-	else if ((*a) == b_node && (*a)->next != s_node)					// ex: a= [3, 1, 2]
-		ra(a, false);
 	else if ((*a) == s_node && (*a)->next == b_node)					// ex: a= [1, 3, 2]
 	{
 		sa(a, false);
 		ra(a, false);
 	}
-	else if ((*a) != s_node && (*a) != b_node && (*a)->next == b_node)
+	else if ((*a) != s_node && (*a) != b_node && (*a)->next == b_node)	// ex: a= [2, 3, 1]
 		rra(a, false);
-	else if ((*a) != s_node && (*a) != b_node && (*a)->next == s_node)
+	else if ((*a) != s_node && (*a) != b_node && (*a)->next == s_node)	// ex: a= [2, 1, 3]
 		sa(a, false);
 }	
