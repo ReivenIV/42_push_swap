@@ -35,10 +35,10 @@
 		- [x] create function that check if the stack is organized in ascending order.
 		- if yes return stack A -> end of program baby!! .
 		- if not organised "hell on earth":
-			- [ ] if 2 :
+			- [x] if 2 :
 				- swap
 				- end of program
-			- [ ] if 3. I will call it the XS:
+			- [x] if 3. I will call it the XS:
 				- there are only 5 ways to do 
 			- [ ] if 4 :
 				- push 1 then XS algo
