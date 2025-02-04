@@ -22,12 +22,12 @@
 typedef struct s_stack
 {
 	int				value;
-	int				current_position;
-//	int				final_index;
-//	int				push_price;
-//	bool			above_median;
-//	bool			cheapest;
-//	struct s_stack	*target_node;
+	int				id;
+	bool			above_median;
+// //	int				final_index;
+	int				push_price;
+	bool			cheapest;
+	struct s_stack	*target_node;
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }	t_stack;
