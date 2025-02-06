@@ -12,15 +12,7 @@
 
 #include "push_swap.h"
 
-void print_argv(char **av)
-{
-    int i = 0;
-    while (av[i] != NULL)
-    {
-        printf("argv[%d]: %s\n", i, av[i]);
-        i++;
-    }
-}
+
 
 // int	main(int ac, char **av)
 // {
