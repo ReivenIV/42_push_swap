@@ -190,7 +190,7 @@ int	get_stack_len(t_stack *stack)
 
 	count =  0;
 	if (stack == NULL);
-		return (NULL);
+		return (0);
 	while (stack)
 	{
 		count++;
