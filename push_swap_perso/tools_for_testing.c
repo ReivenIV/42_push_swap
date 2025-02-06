@@ -14,7 +14,8 @@
 
 // Function to print all nodes in a stack in JSON format
 // Super f*** usefull. It's a keeper these function. 
-void print_stack_json(t_stack *stack, char c) {
+void print_stack_json(t_stack *stack, char c)
+{
     t_stack *current = stack;
 	if (c == 'a')
     	printf("stack_A:");
@@ -45,6 +46,16 @@ void print_stack_json(t_stack *stack, char c) {
         current = current->next;
     }
     printf("]\n");
+}
+
+void print_argv(char **av)
+{
+    int i = 0;
+    while (av[i] != NULL)
+    {
+        printf("argv[%d]: %s\n", i, av[i]);
+        i++;
+    }
 }
 
 //* Function to print all elements in the stack
