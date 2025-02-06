@@ -15,7 +15,7 @@
 // Will update all the "id" or current_index & "is_above_median"(1/0) in given stack.
 // "id" :: is the current position of the node in the stack
 // "aprox_middle" :: we will calculate an ""average or aproximative middle"" value in the given stack. And then we compare every id to the aprox_middle. If 'id' lower than 'aprox_middle' then "is_above_median"=TRUE else "is_above_median"=FALSE
-void	refresh_ids(t_stack	*stack)											//* set_id
+void	refresh_ids(t_stack	*stack)												//* set_id
 {
 	int i;
 	int	aprox_middle;
@@ -38,7 +38,7 @@ void	refresh_ids(t_stack	*stack)											//* set_id
 
 // we update all targets nodes in stack_b pointing to stack_a. 
 // If search the **smallest-bigger** value if not we point it to the smallest 
-void	refresh_targets_node(t_stack *stack_a, t_stack *stack_b)			//* set_target_node
+void	refresh_targets_node(t_stack *stack_a, t_stack *stack_b)				//* set_target_node
 {
 	t_stack	*current_a;
 	t_stack	*best_possible_taget_node;
@@ -67,13 +67,14 @@ void	refresh_targets_node(t_stack *stack_a, t_stack *stack_b)			//* set_target_n
 }
 // Prices to push from b -> a. 
 // price = len_stack - current id;
-void	set_prices(t_stack *a, t_stack *b)									//* set_price
+void	set_prices(t_stack *a, t_stack *b)										//* set_price
 {
 	int	len_a;
 	int	len_b;
 
 	if (a == NULL || b == NULL)
 		return ;
+	
 	len_a = get_stack_len(a);
 	len_b = get_stack_len(b);
 	while(b)
@@ -113,7 +114,7 @@ void	flag_cheapest(t_stack *stack_b)											//* set_cheapest
 }
 
 // Will update all nodes data related to a stack related to its opositve stack.
-void	refresh_nodes_data(t_stack *a, t_stack *b)							//* init_nodes
+void	refresh_nodes_data(t_stack *a, t_stack *b)								//* init_nodes
 {
 	refresh_ids(a);
 	refresh_ids(b);
