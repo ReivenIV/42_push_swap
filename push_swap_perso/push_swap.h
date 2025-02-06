@@ -34,6 +34,8 @@ typedef struct s_stack
 
 // Tools for testing :
 void print_argv(char **av);									//! --> for testing
+void print_stack_json(t_stack *stack, char c);
+void print_argv(char **av);
 
 // Tools  
 //* Parsing
@@ -54,11 +56,17 @@ void	free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2);
 // tools Stack-node
 void	print_stack(t_stack *stack);					//! --> for testing
 t_stack	*create_new_node(int value);					
-t_stack	*get_last_node(t_stack	*head_node);
 void	push_to_top_node(t_stack **stack, int value);
 void	push_to_bottom_node(t_stack **stack, int value);
 int		is_stack_sorted(t_stack *stack);
+
+// tools_get_stack
+t_stack	*get_smallest(t_stack *stack);
 int		get_stack_len(t_stack *stack);
+t_stack	*get_last_node(t_stack	*head_node);
+
+// tools_move_stack
+void	move_t_to_top(t_stack **stack, t_stack *target_node, char s_group);
 
 // tools in stack-nodes-data
 void	refresh_ids(t_stack	*stack);
