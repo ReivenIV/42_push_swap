@@ -38,16 +38,56 @@
 			- [x] if 2 :
 				- swap
 				- end of program
-			- [x] if 3. I will call it the XS:
+			- [x] if 3. sort_3_algo:
 				- there are only 5 ways to do 
-			- [ ] if 4 :
-				- push 1 then XS algo
-			- [ ] if 5 :
-				- push 2 then XS algo
+			- [x] if 4 :
+				- [x] test it.
+				- [x] push smallest to B then sort_3_algo
+			
+			- [ ] if 5 : TODO
+				- [ ] push smallest to B
+				- [x] sort_4_algo.
 				- Something more
-			- [ ] if stack A > 3 nodes.
-				- XL algo.
+			- if stack A > 5 nodes.
+				- [ ] 100 algo:
+				- [ ] 500 algo:
+
 ---
+
+07/02/2025
+	TODO
+		- [ ] connect sort_4
+		- [ ] create connect sort_5
+		- [ ] start looking for sort_100 / sort_500
+
+
+# Algo
+	- tools:
+		- data: 
+			- [x] refresh_nodes_data
+				- [x] refresh_ids (& is_above_median)
+					- super usefull every time we move, push, rotate something we update every id and is_above_median flag.
+				- [x] refresh_targets_node
+					- will update tager_node with the smallest-bigger node in the oposite stack.
+				- [x] set_prices
+					- will update prices related to target_node and current id.
+				- [x] flag_cheapest
+					- after setting prices now we can flag the cheapest node.
+		- get: 
+			- [x] get smallest
+			- [x] get cheapest
+			- [x] get lenth
+			- [x] get last node
+		- move
+			- [x] move target to top
+
+
+## XS algo
+
+## XXL algo
+
+---
+
 
 # Parsing :
 
@@ -90,12 +130,4 @@
 			- ex: Stack : (1,2,3) to_add : 40  ==>  Stack : (1,2,3,40)
 		- [x] TESS: Test Every Single Shit
 
----
-## Instructions
 
----
-# Algo
-
-## XS algo
-
-## XXL algo
