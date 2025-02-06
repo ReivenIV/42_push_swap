@@ -40,14 +40,14 @@ void	pa(t_stack **b, t_stack **a, bool testing_mode)
 {
 	push(b, a);
 	if (!testing_mode)
-		write(1, "pa\n", 1);
+		write(1, "pa\n", 3);
 }
 //			src		  ->	dest
 void	pb(t_stack **a, t_stack **b, bool testing_mode)
 {
 	push(a, b);
 	if (!testing_mode)
-		write(1, "pa\n", 1);
+		write(1, "pb\n", 3);
 }
 
 // // int main(void) {
