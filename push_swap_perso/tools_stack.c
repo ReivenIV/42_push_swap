@@ -19,20 +19,6 @@
 	- (*stack)->previous :: accesses the previous pointer of this node.
 */
 
-//* Function to print all elements in the stack
-void print_stack(t_stack *stack)  			//! FOR TESTING ONLY 
-{
-    t_stack *current;
-
-	current = stack;
-	printf("stack :: ");
-    while (current != NULL)
-    {
-        printf("%d ", current->value);		//! PRINTF
-        current = current->next;
-    }
-    printf("\n");							//! PRINTF
-}
 
 
 //* creates new node
@@ -189,7 +175,7 @@ int	get_stack_len(t_stack *stack)
 	int count;
 
 	count =  0;
-	if (stack == NULL);
+	if (stack == NULL)
 		return (0);
 	while (stack)
 	{
