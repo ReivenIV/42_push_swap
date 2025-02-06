@@ -24,7 +24,6 @@
 		- if (argc == 2) == TRUE then free argv.
 */
 
-
 void	stack_init(t_stack **stack_a, char **av, bool is_argc_2)
 {
 	long	l_nbr;
@@ -48,11 +47,9 @@ void	stack_init(t_stack **stack_a, char **av, bool is_argc_2)
 		free_argv(av, true);
 }																	// Rock it baby
 
-
 //   ---------------------
 //   ::  test it dear   :: 
 //   ---------------------
-
 // // int main(int argc, char **argv)
 // // {
 // //     t_stack *stack_a = NULL;
