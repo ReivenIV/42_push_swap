@@ -57,3 +57,47 @@ t_stack	*get_cheapest(t_stack *stack)
 	}
 	return (NULL);										// if not then return NULL my dear.
 }
+
+// Will return the node of a given stack with the smallest value.
+t_stack *get_smallest(t_stack *stack)
+{
+	long	smallest_value;
+	t_stack	*xs_node;
+
+	xs_node = NULL;
+	if (stack == NULL)
+		return (NULL);
+	smallest_value = LONG_MAX;
+	while (stack)
+	{
+		if (stack->value < smallest_value)
+		{
+			smallest_value = stack->value;
+			xs_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (xs_node);
+}
+
+//* test test_get_smallest:
+// // #include <assert.h>  
+// // void test_get_smallest() {
+// //     // Create sample stack
+// //     t_stack *stack = create_new_node(10);
+// //     stack->next = create_new_node(5);
+// //     stack->next->prev = stack;
+// //     stack->next->next = create_new_node(20);
+// //     stack->next->next->prev = stack->next;
+// //     // Call get_smallest
+// //     t_stack *smallest_node = get_smallest(stack);
+// //     // Verify the smallest node
+// //     assert(smallest_node->value == 5);
+// //     // Free the stack
+// //     free_stack(&stack);
+// // }
+// // int main() {
+// //     test_get_smallest();
+// //     printf("All tests passed!\n");
+// //     return 0;
+// // }
