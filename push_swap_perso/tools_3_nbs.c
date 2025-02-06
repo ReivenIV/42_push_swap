@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-// will output the highest node in the stack.
+// will output the HIGHEST node in the stack.
 t_stack	*get_h_node(t_stack *stack)
 {
 	int		value_h;
@@ -33,7 +33,7 @@ t_stack	*get_h_node(t_stack *stack)
 	return (highest_node);
 }
 
-// will output the smallest node in the stack.
+// will output the SMALLEST node in the stack.
 t_stack	*get_s_node(t_stack *stack)
 {
 	int		value_s;
