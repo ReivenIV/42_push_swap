@@ -43,3 +43,17 @@ t_stack	*get_last_node(t_stack	*head_node)
 	last_node = current_node;
 	return (last_node);
 }
+
+// will return the cheapest node in a given stack.
+t_stack	*get_cheapest(t_stack *stack)
+{
+	if (stack == NULL)
+		return (NULL);
+	while (stack)										// loop till the end.
+	{
+		if (stack->is_cheapest == true)					// If we find the node flagged to is_cheapest == TRUE return it.
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);										// if not then return NULL my dear.
+}
