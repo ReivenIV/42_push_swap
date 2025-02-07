@@ -82,10 +82,12 @@ void	refresh_nodes_data(t_stack *a, t_stack *b);
 void	ra(t_stack **a, bool testing_mode);
 void	rb(t_stack **b, bool testing_mode);
 void	rr(t_stack **a, t_stack **b, bool testing_mode);
+void	rr_till_cheapest(t_stack **a, t_stack **b, t_stack *cheapest_node);
 // Reverse-rotate
 void	rra(t_stack **a, bool testing_mode);
 void	rrb(t_stack **b, bool testing_mode);
 void	rrr(t_stack **a, t_stack **b, bool testing_mode);
+void	rrr_till_cheapest(t_stack **a, t_stack **b, t_stack *cheapest_node);
 // Swap
 void	sa(t_stack **a, bool testing_mode);
 void	sb(t_stack **b, bool testing_mode);
@@ -105,7 +107,7 @@ void	algo_handler(t_stack **stack_a, t_stack **stack_b);
 void	sort_three_nbs(t_stack **a);
 void	sort_four_nbs(t_stack **stack_a, t_stack **stack_b);
 void	sort_five_nbs(t_stack **stack_a, t_stack **stack_b);
-
+void	sort_random_amount(t_stack **stack_a, t_stack **stack_b, int len_a);
 
 
 #endif
