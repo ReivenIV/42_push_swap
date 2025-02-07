@@ -94,14 +94,14 @@ void	ss(t_stack **a, t_stack **b, bool testing_mode);
 void	pa(t_stack **b, t_stack **a, bool testing_mode);
 void	pb(t_stack **a, t_stack **b, bool testing_mode);
 
-//		------------
-//		::  Algos ::
-//		------------
-// XS algo
+// sort_3 tools
 t_stack	*get_h_node(t_stack *stack);
 t_stack	*get_s_node(t_stack *stack);
 
-// XL Algo
+//		------------
+//		::  Algos ::
+//		------------
+void	algo_handler(t_stack **stack_a, t_stack **stack_b);
 void	sort_three_nbs(t_stack **a);
 void	sort_four_nbs(t_stack **stack_a, t_stack **stack_b);
 void	sort_five_nbs(t_stack **stack_a, t_stack **stack_b);
