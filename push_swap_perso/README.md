@@ -59,7 +59,12 @@
 		- [x] connect sort_4
 		- [x] create connect sort_5
 		- [x] sort_5 fixbug.
-		- [ ] start looking for sort_100 / sort_500
+		- [x] start looking for sort_100 / sort_500
+
+08/02/2025
+	TODO
+		- [ ] debug refresh_nodes_data
+		- [ ] sort_random_amount is seg faulting. check whats going on. I think the problems is related to refresh_nodes_data not adding data and the ids:-1 are creating the problem. 
 
 
 # Algo
