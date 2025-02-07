@@ -50,6 +50,9 @@ void	push_to_bottom_node(t_stack **stack, int value)
 	}
 }
 
+//*   ---------------------
+//*   ::  test it dear   ::
+//*  ----------------------
 //* test | get_last_node | push_to_bottom_node | push_to_top_node | to tests.
 // // int main()
 // // {

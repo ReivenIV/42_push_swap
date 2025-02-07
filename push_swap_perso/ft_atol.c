@@ -35,9 +35,9 @@ long	ft_atol(const char *src)
 	return (nb * power);
 }
 
-//   ---------------------
-//   ::  test it dear   :: 
-//   ---------------------
+//*   ---------------------
+//*   ::  test it dear   ::
+//*  ----------------------
 
 // // #include <stdio.h>
 // // #include <limits.h>

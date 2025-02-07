@@ -53,6 +53,9 @@ int	is_stack_sorted(t_stack *stack)
 	return (1);
 }
 
+//*   ---------------------
+//*   ::  test it dear   ::
+//*  ----------------------
 // Test function for is_stack_sorted
 // // int main(void) {
 // //     t_stack *stack = NULL;

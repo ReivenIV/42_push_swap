@@ -27,6 +27,10 @@ void	sort_four_nbs(t_stack **stack_a, t_stack **stack_b)
 	pa(stack_b, stack_a, false);
 }
 
+//*   ---------------------
+//*   ::  test it dear   ::
+//*  ----------------------
+
 // // int main(void)
 // // {
 // //     t_stack *stack_a = NULL;

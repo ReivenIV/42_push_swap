@@ -80,6 +80,9 @@ t_stack *get_smallest(t_stack *stack)
 	return (xs_node);
 }
 
+//*   ---------------------
+//*   ::  test it dear   ::
+//*  ----------------------
 //* test test_get_smallest:
 // // #include <assert.h>  
 // // void test_get_smallest() {

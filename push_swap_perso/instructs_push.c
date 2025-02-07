@@ -50,6 +50,9 @@ void	pb(t_stack **a, t_stack **b, bool testing_mode)
 		write(1, "pb\n", 3);
 }
 
+//*   ---------------------
+//*   ::  test it dear   ::
+//*  ----------------------
 // // int main(void) {
 // // 	t_stack *stack_a = NULL;
 // // 	t_stack *stack_b = NULL;

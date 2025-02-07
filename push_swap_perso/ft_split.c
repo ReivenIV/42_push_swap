@@ -154,9 +154,9 @@ char	**ft_split(char const *src)
 }
 
 
-//   ---------------------
-//   ::  test it dear   :: 
-//   ---------------------
+//*   ---------------------
+//*   ::  test it dear   ::
+//*  ----------------------
 
 // //!  Main function to test ft_split
 // #include <stdio.h>

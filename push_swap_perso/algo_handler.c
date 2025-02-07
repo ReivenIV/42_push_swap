@@ -1,0 +1,54 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo_handler.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/07 15:44:04 by rita              #+#    #+#             */
+/*   Updated: 2025/02/07 15:44:04 by rita             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	algo_handler(t_stack **stack_a, t_stack **stack_b)
+{
+    int	stack_a_length;
+
+    stack_a_length = get_stack_len(*stack_a);
+    if (stack_a_length == 2)
+        sa(stack_a, false);
+    else if (stack_a_length == 3)
+        sort_three_nbs(stack_a);
+    else if (stack_a_length == 4)
+        sort_four_nbs(stack_a, stack_b);
+    else if (stack_a_length == 5)
+        sort_five_nbs(stack_a, stack_b);
+}
+
+//*   ---------------------
+//*   ::  test it dear   ::
+//*  ----------------------
+
+// int main(void) {
+
+// 	t_stack *stack_a = NULL;
+//     t_stack *stack_b = NULL;
+
+// 	push_to_bottom_node(&stack_a, 500);
+// 	push_to_bottom_node(&stack_a, 20);
+// 	push_to_bottom_node(&stack_a, 10);
+// 	push_to_top_node(&stack_a, 40);
+// 	push_to_top_node(&stack_a, 30);
+	
+// 	print_stack_json(stack_a, 'a');
+// 	print_stack_json(stack_b, 'b');
+// 	//print_stack_json(stack_a, 'a');
+// 	algo_handler(&stack_a, &stack_b);
+// 	printf("----------------------");
+// 	print_stack_json(stack_a, 'a');
+// 	print_stack_json(stack_b, 'b');
+// 	free_stack(&stack_a);
+// 	return (0);
+// }

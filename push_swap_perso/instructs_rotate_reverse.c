@@ -50,9 +50,9 @@ void	rrr(t_stack **a, t_stack **b, bool testing_mode)
 		write(1, "rrr\n", 4);
 }
 
-//   ---------------------
-//   ::  test it dear   :: 
-//   ---------------------
+//*   ---------------------
+//*   ::  test it dear   ::
+//*  ----------------------
 // // int main(void)
 // // {
 // // 	t_stack *stack = NULL;
