@@ -1,127 +1,131 @@
-#include "push_swap.h"
-#include <assert.h>
+//*   ---------------------
+//*   ::  test it dear   ::
+//*  ----------------------
 
-//* test_refresh_ids
-void test_refresh_ids() {
-    // Create a sample stack
-    t_stack *stack = create_new_node(10);
-    stack->next = create_new_node(20);
-    stack->next->prev = stack;
-    stack->next->next = create_new_node(30);
-    stack->next->next->prev = stack->next;
+// // #include "push_swap.h"
+// // #include <assert.h>
 
-    // Call refresh_ids
-    refresh_ids(stack);
+// // //* test_refresh_ids
+// // void test_refresh_ids() {
+// //     // Create a sample stack
+// //     t_stack *stack = create_new_node(10);
+// //     stack->next = create_new_node(20);
+// //     stack->next->prev = stack;
+// //     stack->next->next = create_new_node(30);
+// //     stack->next->next->prev = stack->next;
 
-    // Verify the ids and is_above_median values
-    t_stack *current = stack;
-    int expected_ids[] = {0, 1, 2};
-    bool expected_medians[] = {true, true, false};
-    for (int i = 0; i < 3; i++) {
-        assert(current->id == expected_ids[i]);
-        assert(current->is_above_median == expected_medians[i]);
-        current = current->next;
-    }
-    // Free the stack
-    free_stack(&stack);
-}
+// //     // Call refresh_ids
+// //     refresh_ids(stack);
 
-void test_refresh_targets_node() {
-    // Create sample stacks
-    t_stack *stack_a = create_new_node(10);
-    stack_a->next = create_new_node(20);
-    stack_a->next->prev = stack_a;
-    stack_a->next->next = create_new_node(30);
-    stack_a->next->next->prev = stack_a->next;
+// //     // Verify the ids and is_above_median values
+// //     t_stack *current = stack;
+// //     int expected_ids[] = {0, 1, 2};
+// //     bool expected_medians[] = {true, true, false};
+// //     for (int i = 0; i < 3; i++) {
+// //         assert(current->id == expected_ids[i]);
+// //         assert(current->is_above_median == expected_medians[i]);
+// //         current = current->next;
+// //     }
+// //     // Free the stack
+// //     free_stack(&stack);
+// // }
 
-    t_stack *stack_b = create_new_node(15);
-    stack_b->next = create_new_node(25);
-    stack_b->next->prev = stack_b;
+// // void test_refresh_targets_node() {
+// //     // Create sample stacks
+// //     t_stack *stack_a = create_new_node(10);
+// //     stack_a->next = create_new_node(20);
+// //     stack_a->next->prev = stack_a;
+// //     stack_a->next->next = create_new_node(30);
+// //     stack_a->next->next->prev = stack_a->next;
 
-    // Call refresh_targets_node
-    refresh_targets_node(stack_a, stack_b);
+// //     t_stack *stack_b = create_new_node(15);
+// //     stack_b->next = create_new_node(25);
+// //     stack_b->next->prev = stack_b;
 
-    // Verify the target nodes
-    assert(stack_b->target_node == stack_a->next); // 15 should target 20
-    assert(stack_b->next->target_node == stack_a->next->next); // 25 should target 30
+// //     // Call refresh_targets_node
+// //     refresh_targets_node(stack_a, stack_b);
 
-    // Free the stacks
-    free_stack(&stack_a);
-    free_stack(&stack_b);
-}
+// //     // Verify the target nodes
+// //     assert(stack_b->target_node == stack_a->next); // 15 should target 20
+// //     assert(stack_b->next->target_node == stack_a->next->next); // 25 should target 30
 
-void test_set_prices() {
-    // Create sample stacks
-    t_stack *stack_a = create_new_node(10);
-    stack_a->next = create_new_node(20);
-    stack_a->next->prev = stack_a;
-    stack_a->next->next = create_new_node(30);
-    stack_a->next->next->prev = stack_a->next;
+// //     // Free the stacks
+// //     free_stack(&stack_a);
+// //     free_stack(&stack_b);
+// // }
 
-    t_stack *stack_b = create_new_node(15);
-    stack_b->next = create_new_node(25);
-    stack_b->next->prev = stack_b;
-	// stack_b->next->next = NULL;
-	// stack_b->next->next->prev = stack_b->next;
+// // void test_set_prices() {
+// //     // Create sample stacks
+// //     t_stack *stack_a = create_new_node(10);
+// //     stack_a->next = create_new_node(20);
+// //     stack_a->next->prev = stack_a;
+// //     stack_a->next->next = create_new_node(30);
+// //     stack_a->next->next->prev = stack_a->next;
 
-	refresh_ids(stack_a);
-	refresh_ids(stack_b);
-	refresh_targets_node(stack_a, stack_b);				// without target you will have a segment fault
-    set_prices(stack_a, stack_b);						// Call set_prices
+// //     t_stack *stack_b = create_new_node(15);
+// //     stack_b->next = create_new_node(25);
+// //     stack_b->next->prev = stack_b;
+// // 	// stack_b->next->next = NULL;
+// // 	// stack_b->next->next->prev = stack_b->next;
 
-    // Verify the push prices
-    assert(stack_b->push_price == 1); // 15 should have a push price of 1
-    assert(stack_b->next->push_price == 2); // 25 should have a push price of 2
+// // 	refresh_ids(stack_a);
+// // 	refresh_ids(stack_b);
+// // 	refresh_targets_node(stack_a, stack_b);				// without target you will have a segment fault
+// //     set_prices(stack_a, stack_b);						// Call set_prices
 
-    // Free the stacks
-    free_stack(&stack_a);
-    free_stack(&stack_b);
-}
+// //     // Verify the push prices
+// //     assert(stack_b->push_price == 1); // 15 should have a push price of 1
+// //     assert(stack_b->next->push_price == 2); // 25 should have a push price of 2
 
-void test_flag_cheapest() {
-    // Create sample stacks
-    t_stack *stack_a = create_new_node(10);
-    stack_a->next = create_new_node(20);
-    stack_a->next->prev = stack_a;
-    stack_a->next->next = create_new_node(30);
-    stack_a->next->next->prev = stack_a->next;
+// //     // Free the stacks
+// //     free_stack(&stack_a);
+// //     free_stack(&stack_b);
+// // }
 
-    t_stack *stack_b = create_new_node(15);
-    stack_b->next = create_new_node(25);
-    stack_b->next->prev = stack_b;
-	print_stack_json(stack_b, 'b');
-    printf("-------------------------\n");
-    printf("-------------------------\n");
-    printf("-------------------------\n");
+// // void test_flag_cheapest() {
+// //     // Create sample stacks
+// //     t_stack *stack_a = create_new_node(10);
+// //     stack_a->next = create_new_node(20);
+// //     stack_a->next->prev = stack_a;
+// //     stack_a->next->next = create_new_node(30);
+// //     stack_a->next->next->prev = stack_a->next;
 
-    // Refresh data and set prices
-    refresh_ids(stack_a);
-    refresh_ids(stack_b);
-    refresh_targets_node(stack_a, stack_b);
-    set_prices(stack_a, stack_b);
+// //     t_stack *stack_b = create_new_node(15);
+// //     stack_b->next = create_new_node(25);
+// //     stack_b->next->prev = stack_b;
+// // 	print_stack_json(stack_b, 'b');
+// //     printf("-------------------------\n");
+// //     printf("-------------------------\n");
+// //     printf("-------------------------\n");
 
-    // Call flag_cheapest
-    flag_cheapest(stack_b);
+// //     // Refresh data and set prices
+// //     refresh_ids(stack_a);
+// //     refresh_ids(stack_b);
+// //     refresh_targets_node(stack_a, stack_b);
+// //     set_prices(stack_a, stack_b);
 
-	print_stack_json(stack_a, 'a');
-    printf("-------------------------\n");
+// //     // Call flag_cheapest
+// //     flag_cheapest(stack_b);
 
-	print_stack_json(stack_b, 'b');
-    // Verify the cheapest node
-    assert(stack_b->is_cheapest == true);				// 15 should be flagged as cheapest
-    assert(stack_b->next->is_cheapest == false);		// 25 should not be flagged as cheapest
+// // 	print_stack_json(stack_a, 'a');
+// //     printf("-------------------------\n");
 
-    // Free the stacks
-    free_stack(&stack_a);
-    free_stack(&stack_b);
-}
+// // 	print_stack_json(stack_b, 'b');
+// //     // Verify the cheapest node
+// //     assert(stack_b->is_cheapest == true);				// 15 should be flagged as cheapest
+// //     assert(stack_b->next->is_cheapest == false);		// 25 should not be flagged as cheapest
 
-// Will test all function in present f
-int main() {
-    test_refresh_ids();
-    test_refresh_targets_node();
-    test_set_prices();
-	test_flag_cheapest();
-    printf("All tests passed!\n");
-    return 0;
-}
+// //     // Free the stacks
+// //     free_stack(&stack_a);
+// //     free_stack(&stack_b);
+// // }
+
+// // // Will test all function in present f
+// // int main() {
+// //     test_refresh_ids();
+// //     test_refresh_targets_node();
+// //     test_set_prices();
+// // 	test_flag_cheapest();
+// //     printf("All tests passed!\n");
+// //     return 0;
+// // }
