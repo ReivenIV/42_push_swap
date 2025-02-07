@@ -64,9 +64,11 @@ int		is_stack_sorted(t_stack *stack);
 t_stack	*get_smallest(t_stack *stack);
 int		get_stack_len(t_stack *stack);
 t_stack	*get_last_node(t_stack	*head_node);
+t_stack	*get_cheapest(t_stack *stack);
 
 // tools_move_stack
 void	move_t_to_top(t_stack **stack, t_stack *target_node, char s_group);
+void	move_cheapest(t_stack **a, t_stack **b);
 
 // tools in stack-nodes-data
 void	refresh_ids(t_stack	*stack);

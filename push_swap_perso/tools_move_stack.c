@@ -33,3 +33,18 @@ void	move_t_to_top(t_stack **stack, t_stack *target_node, char s_group)
 		}
 	}
 }
+
+void	move_cheapest(t_stack **a, t_stack **b)
+{
+	t_stack	*cheapest;
+
+	cheapest = get_cheapest(*b);
+
+	if (cheapest->is_above_median && cheapest->target_node->is_above_median)
+		rr_till_cheapest(a, b, cheapest);
+	else if (!(cheapest->is_above_median) && !(cheapest->target_node->is_above_median))
+		rrr_till_cheapest(a, b, cheapest);
+	move_t_to_top(b, cheapest, 'b');
+	move_t_to_top(a, cheapest->target_node, 'a');
+	pa(a, b, false);
+}

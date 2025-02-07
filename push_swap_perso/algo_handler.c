@@ -25,6 +25,9 @@ void	algo_handler(t_stack **stack_a, t_stack **stack_b)
         sort_four_nbs(stack_a, stack_b);
     else if (stack_a_length == 5)
         sort_five_nbs(stack_a, stack_b);
+	else if (stack_a_length > 5)
+		printf("you are doing it ma boy");
+	//sort_random_amount(stack_a, stack_b);
 }
 
 //*   ---------------------

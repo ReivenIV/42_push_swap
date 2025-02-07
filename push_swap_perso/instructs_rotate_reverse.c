@@ -52,7 +52,7 @@ void	rrr(t_stack **a, t_stack **b, bool testing_mode)
 
 void	rrr_till_cheapest(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
-	while (*a != cheapest_node->target_node && b != cheapest_node)
+	while (*a != cheapest_node->target_node && *b != cheapest_node)
 		rrr(a, b, false);
 	refresh_ids(*a);
 	refresh_ids(*b);
