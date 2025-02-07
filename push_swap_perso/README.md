@@ -15,7 +15,7 @@
 			- [x] leaks handling.
 			- [x] create stack A.
 			- [x] add all values to stack A.
-	- [ ] Create instructions:
+	- [x] Create instructions:
 		- [x] Swap
 			- [x] sa
 			- [x] sb
@@ -31,7 +31,7 @@
 			- [x] rra
 			- [x] rrb
 			- [x] rrr
-	- [ ] Check if stack A is organised:
+	- [x] Check if stack A is organised:
 		- [x] create function that check if the stack is organized in ascending order.
 		- if yes return stack A -> end of program baby!! .
 		- if not organised "hell on earth":
@@ -44,8 +44,8 @@
 				- [x] test it.
 				- [x] push smallest to B then sort_3_algo
 			
-			- [ ] if 5 : TODO
-				- [ ] push smallest to B
+			- [x] if 5 :
+				- [x] push smallest to B
 				- [x] sort_4_algo.
 				- Something more
 			- if stack A > 5 nodes.
@@ -56,8 +56,9 @@
 
 07/02/2025
 	TODO
-		- [ ] connect sort_4
-		- [ ] create connect sort_5
+		- [x] connect sort_4
+		- [x] create connect sort_5
+		- [x] sort_5 fixbug.
 		- [ ] start looking for sort_100 / sort_500
 
 
@@ -81,10 +82,6 @@
 		- move
 			- [x] move target to top
 
-
-## XS algo
-
-## XXL algo
 
 ---
 
