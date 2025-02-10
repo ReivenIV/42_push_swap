@@ -28,29 +28,3 @@ void	algo_handler(t_stack **stack_a, t_stack **stack_b)
 	else if (stack_a_length > 5)
 		sort_random_amount(stack_a, stack_b, stack_a_length);
 }
-
-//*   ---------------------
-//*   ::  test it dear   ::
-//*  ----------------------
-
-// int main(void) {
-
-// 	t_stack *stack_a = NULL;
-//     t_stack *stack_b = NULL;
-
-// 	push_to_bottom_node(&stack_a, 500);
-// 	push_to_bottom_node(&stack_a, 20);
-// 	push_to_bottom_node(&stack_a, 10);
-// 	push_to_top_node(&stack_a, 40);
-// 	push_to_top_node(&stack_a, 30);
-	
-// 	print_stack_json(stack_a, 'a');
-// 	print_stack_json(stack_b, 'b');
-// 	//print_stack_json(stack_a, 'a');
-// 	algo_handler(&stack_a, &stack_b);
-// 	printf("----------------------");
-// 	print_stack_json(stack_a, 'a');
-// 	print_stack_json(stack_b, 'b');
-// 	free_stack(&stack_a);
-// 	return (0);
-// }

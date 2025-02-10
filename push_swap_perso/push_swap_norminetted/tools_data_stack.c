@@ -15,7 +15,7 @@
 // Will update all the "id" or current_index & "is_above_median"(1/0) in given stack.
 // "id" :: is the current position of the node in the stack
 // "aprox_middle" :: we will calculate an ""average or aproximative middle"" value in the given stack. And then we compare every id to the aprox_middle. If 'id' lower than 'aprox_middle' then "is_above_median"=TRUE else "is_above_median"=FALSE
-void	refresh_ids(t_stack	*stack)												//* set_id
+void	refresh_ids(t_stack	*stack)
 {
 	int i;
 	int	aprox_middle;
@@ -23,10 +23,10 @@ void	refresh_ids(t_stack	*stack)												//* set_id
 	if (stack == NULL)
 		return ;
 	i = 0;
-	aprox_middle = get_stack_len(stack) / 2;					// we calculate in the given stack un aprox middle
+	aprox_middle = get_stack_len(stack) / 2;
 	while (stack)
 	{
-		stack->id = i;											// we asigne an id to each node in the stack
+		stack->id = i;
 		if (i <= aprox_middle)
 			stack->is_above_median = true;
 		else
@@ -38,7 +38,7 @@ void	refresh_ids(t_stack	*stack)												//* set_id
 
 // we update all targets nodes in stack_b pointing to stack_a. 
 // If search the **smallest-bigger** value if not we point it to the smallest 
-void	refresh_targets_node(t_stack *stack_a, t_stack *stack_b)				//* set_target_node
+void	refresh_targets_node(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*current_a;
 	t_stack	*best_possible_taget_node;
@@ -46,28 +46,28 @@ void	refresh_targets_node(t_stack *stack_a, t_stack *stack_b)				//* set_target_
 
 	while (stack_b)
 	{
-		best_match_value = LONG_MAX;							// restart b.m.v
-		current_a = stack_a;									// restart currect_a to the head of stack_a;
+		best_match_value = LONG_MAX;
+		current_a = stack_a;
 		while (current_a)
 		{
-			if (stack_b->value < current_a->value				// we look for the **smallest-bigger** number than current node in stack_b pointing to stack_a
+			if (stack_b->value < current_a->value
 				&& current_a->value < best_match_value)
 			{
 				best_match_value = current_a->value;
 				best_possible_taget_node = current_a;
 			}
-			current_a = current_a->next;						// stack_A node ++
+			current_a = current_a->next;
 		}
-		if (best_match_value == LONG_MAX)						// If we have one of the biggest numbers the b.m.v will not change. in these case "target_node" == to the smallest node in stack_A
-			stack_b->target_node = get_s_node(stack_a);			// ""current node in stack_B""->target_node === get smallest node in stack_A
+		if (best_match_value == LONG_MAX)
+			stack_b->target_node = get_s_node(stack_a);
 		else
-			stack_b->target_node = best_possible_taget_node;	// if b.m.v is changed then ""current node in stack_B""->target_node === best_possible_taget_node in stack_A
-		stack_b = stack_b->next;								// stack_B node ++
+			stack_b->target_node = best_possible_taget_node;
+		stack_b = stack_b->next;
 	}
 }
 // Prices to push from b -> a. 
 // price = len_stack - current id;
-void	set_prices(t_stack *a, t_stack *b)										//* set_price
+void	set_prices(t_stack *a, t_stack *b)
 {
 	int	len_a;
 	int	len_b;
@@ -79,11 +79,9 @@ void	set_prices(t_stack *a, t_stack *b)										//* set_price
 	len_b = get_stack_len(b);
 	while(b)
 	{
-		b->push_price = b->id;									// We init the price to its current id.
-
+		b->push_price = b->id;
 		if (b->is_above_median == false)
 			b->push_price = len_b - b->id;
-
 		if (b->target_node->is_above_median == true)
 			b->push_price += b->target_node->id;
 		else
@@ -93,28 +91,28 @@ void	set_prices(t_stack *a, t_stack *b)										//* set_price
 }
 
 // flag the cheapest node in the stack_b to push into de stack_A
-void	flag_cheapest(t_stack *stack_b)											//* set_cheapest
+void	flag_cheapest(t_stack *stack_b)
 {
 	long	best_match_value;
 	t_stack	*best_node;
 
 	if (stack_b == NULL)
 		return ;
-	best_match_value = LONG_MAX;								// We init best_match_value to LONG_MAX
+	best_match_value = LONG_MAX;
 	while (stack_b)
 	{
-		if (stack_b->push_price < best_match_value)				// every time we found a node->price smaller to b.m.v
+		if (stack_b->push_price < best_match_value)
 		{
-			best_match_value = stack_b->push_price;				// we update b.m.v value to the current node
-			best_node = stack_b;								// we update our best possible node with the current smaller price value
+			best_match_value = stack_b->push_price;
+			best_node = stack_b;
 		}
 		stack_b = stack_b->next;
 	}
-	best_node->is_cheapest = true;								// When we loop over all the stack_B and we already found the node with the cheapest price. We flag it.
+	best_node->is_cheapest = true;
 }
 
 // Will update all nodes data related to a stack related to its opositve stack.
-void	refresh_nodes_data(t_stack *a, t_stack *b)								//* init_nodes
+void	refresh_nodes_data(t_stack *a, t_stack *b)
 {
 	refresh_ids(a);
 	refresh_ids(b);

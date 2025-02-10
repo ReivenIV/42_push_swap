@@ -25,8 +25,8 @@ t_stack	*get_h_node(t_stack *stack)
 	{
 		if (stack->value > value_h)
 		{
-			value_h = stack->value; 		// when we found a new highets we update value_h.
-			highest_node = stack;			// we save the current highest present in the stack.
+			value_h = stack->value;
+			highest_node = stack;
 		}
 		stack = stack->next;
 	}
@@ -46,8 +46,8 @@ t_stack	*get_s_node(t_stack *stack)
 	{
 		if (stack->value < value_s)
 		{
-			value_s = stack->value; 		// when we found a new smallest we update value_s.
-			smallest_node = stack;			// we save the current smallest present in the stack.
+			value_s = stack->value;
+			smallest_node = stack;
 		}
 		stack = stack->next;
 	}

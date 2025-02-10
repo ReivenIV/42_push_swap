@@ -18,21 +18,21 @@ static	void push(t_stack **src, t_stack **dest)
 
 	if (*src == NULL)
 		return ;
-	push_node = (*src);			// assign push node to the first node of src;
-	(*src) = (*src)->next;		// src head's updated to the second node (can be a NULL node).
-	if (*src)					// if there is a node in src then the new first_one->prev will be NULL
+	push_node = (*src);
+	(*src) = (*src)->next;
+	if (*src)
 		(*src)->prev = NULL;
-	push_node->prev = NULL;		// because p.n. will be the first one in the dest stack then prev = NULL
-	if (*dest == NULL)			// If dest is empty
+	push_node->prev = NULL;
+	if (*dest == NULL)
 	{
-		*dest = push_node;		// update dest heads to push_node
+		*dest = push_node;
 		push_node->next = NULL;
 	}
 	else
 	{
-		push_node->next = *dest; 			// the new-first node -> points to the "head" the first node of dest.
-		push_node->next->prev = push_node;	// The new-second node -> prev points to the head.
-		*dest = push_node;					// update dest heads to push_node
+		push_node->next = *dest;
+		push_node->next->prev = push_node;
+		*dest = push_node;
 	}
 }
 //			src		  ->	dest

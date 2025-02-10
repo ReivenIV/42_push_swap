@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "push_swap.h"
 
 /*
@@ -26,20 +24,20 @@ void	sort_three_nbs(t_stack **a)
 	b_node = get_h_node(*a);
 	s_node = get_s_node(*a);
 
-	if ((*a) == b_node && (*a)->next == s_node) 						// ex: a= [3, 1, 2]
+	if ((*a) == b_node && (*a)->next == s_node)
 		ra(a, false);
-	else if ((*a) == b_node && (*a)->next != s_node)					// ex: a= [3, 2, 1]
+	else if ((*a) == b_node && (*a)->next != s_node)
 	{
 		sa(a, false);
 		rra(a, false);
 	}
-	else if ((*a) == s_node && (*a)->next == b_node)					// ex: a= [1, 3, 2]
+	else if ((*a) == s_node && (*a)->next == b_node)
 	{
 		sa(a, false);
 		ra(a, false);
 	}
-	else if ((*a) != s_node && (*a) != b_node && (*a)->next == b_node)	// ex: a= [2, 3, 1]
+	else if ((*a) != s_node && (*a) != b_node && (*a)->next == b_node)
 		rra(a, false);
-	else if ((*a) != s_node && (*a) != b_node && (*a)->next == s_node)	// ex: a= [2, 1, 3]
+	else if ((*a) != s_node && (*a) != b_node && (*a)->next == s_node)
 		sa(a, false);
 }	

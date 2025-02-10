@@ -22,17 +22,20 @@
 typedef struct s_stack
 {
 	int				value;
-	int				id;									// current order of nodes (will be updated in every move)
-	bool			is_above_median;					// in the stack is it above the the middle of the stack ? 
-	int				push_price;							// aprox how many moves will be needed to move the node
-	bool			is_cheapest;							// is it the cheapest node to be moved ? 
-	struct s_stack	*target_node;						// the best possible following node
+	int				id;
+	bool			is_above_median;
+	int				push_price;
+	bool			is_cheapest;
+	struct s_stack	*target_node;
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }	t_stack;
 
 // Tools for testing :
 void print_argv(char **av);									//! --> for testing
+void	print_stack(t_stack *stack);					//! --> for testing
+
+
 void print_stack_json(t_stack *stack, char c);
 void print_argv(char **av);
 
@@ -43,8 +46,8 @@ long	ft_atol(const char *src);
 void	stack_init(t_stack **stack_a, char **argv, bool is_argc_2);
 
 // Error handling
-int		is_syntax_correct(char* src);					// return BOOl.
-int		is_nb_in_stack(t_stack *a, int nb);				// return BOOl.
+int		is_syntax_correct(char* src);
+int		is_nb_in_stack(t_stack *a, int nb);
 void	free_stack(t_stack **stack);
 void	free_argv(char **argv, bool is_ac_2);
 void	free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2);
@@ -53,7 +56,6 @@ void	free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2);
 //		::  tools  ::
 //		-------------
 // tools Stack-node
-void	print_stack(t_stack *stack);					//! --> for testing
 t_stack	*create_new_node(int value);					
 void	push_to_top_node(t_stack **stack, int value);
 void	push_to_bottom_node(t_stack **stack, int value);

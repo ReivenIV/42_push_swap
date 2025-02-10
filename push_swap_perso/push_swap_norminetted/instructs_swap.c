@@ -25,15 +25,15 @@ static	void swap_stack(t_stack **stack)
 	if (*stack == NULL || stack == NULL || len_stack == 1)
 		return ;
 	
-	*stack = old_second_node;								// we update head of the stack to the second node.
+	*stack = old_second_node;
 
 	old_first_node->next = old_second_node->next;
 	old_first_node->prev = old_second_node;
 
-	if (old_second_node->next)								// in case there is a 3th node. We update the previous to the old_first (because the old_second is now first)
+	if (old_second_node->next)
 		old_second_node->next->prev = old_first_node;
 
-	old_second_node->next = old_first_node;					// update old_second now is head of the stack.
+	old_second_node->next = old_first_node;
 	old_second_node->prev = NULL;
 }
 
@@ -57,33 +57,3 @@ void	ss(t_stack **a, t_stack **b, bool testing_mode)
 	if(!testing_mode)
 		write(1, "ss\n", 3);
 }
-
-//*   ---------------------
-//*   ::  test it dear   ::
-//*  ----------------------
-// // int main(void)
-// // {
-// //     t_stack *stack = NULL;
-// //     // Add some nodes to the stack
-// //     push_to_bottom_node(&stack, 1);
-// //     push_to_bottom_node(&stack, 2);
-// //     push_to_bottom_node(&stack, 3);
-// //     // Print the stack before rotation
-// //     printf("Stack before rotation: ");
-// //     print_stack(stack);
-// //     // Rotate the stack
-// //     swap_stack(&stack);
-// //     // Print the stack after rotation
-// //     printf("Stack after rotation : ");
-// //     print_stack(stack);
-// //     // Free the stack (for good practice)
-// //     t_stack *current = stack;
-// //     t_stack *next;
-// //     while (current)
-// //     {
-// //         next = current->next;
-// //         free(current);
-// //         current = next;
-// //     }
-// //     return 0;
-// // }

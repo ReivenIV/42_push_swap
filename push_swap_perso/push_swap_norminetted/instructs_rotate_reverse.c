@@ -20,12 +20,12 @@ static	void rotate_reverse_stack(t_stack **stack)
 	stack_len = get_stack_len(*stack);
 	if (*stack == NULL || stack == NULL || stack_len == 1)
 		return ;
-	current_node = get_last_node(*stack);					// we GET the last node in the stack. 
-	current_node->prev->next = NULL;  						// we update the next of the penultimate (before the lastone);
-	current_node->next = (*stack);							// new_firstone->next points to second;
-	current_node->prev = NULL;								// new_firstone->prev points to NULL;
-	(*stack) = current_node;								// update stack with new head
-	current_node->next->prev = current_node;				// second node-> points to New first node;
+	current_node = get_last_node(*stack);
+	current_node->prev->next = NULL;
+	current_node->next = (*stack);
+	current_node->prev = NULL;
+	(*stack) = current_node;
+	current_node->next->prev = current_node;
 }
 
 void	rra(t_stack **a, bool testing_mode)
@@ -57,26 +57,3 @@ void	rrr_till_cheapest(t_stack **a, t_stack **b, t_stack *cheapest_node)
 	refresh_ids(*a);
 	refresh_ids(*b);
 }
-
-//*   ---------------------
-//*   ::  test it dear   ::
-//*  ----------------------
-// // int main(void)
-// // {
-// // 	t_stack *stack = NULL;
-// // 	// remember to try with several nodes not only 3.
-// // 	push_to_bottom_node(&stack, 1);
-// // 	push_to_bottom_node(&stack, 2);
-// // 	push_to_bottom_node(&stack, 3);
-// // 	push_to_bottom_node(&stack, 4);
-// // 	push_to_bottom_node(&stack, 5);
-// // 	// Print the stack before rotation
-// // 	printf("Stack before rotation: ");
-// // 	print_stack(stack);
-// // 	// Call rotate_reverse_stack
-// // 	rotate_reverse_stack(&stack);
-// // 	// Print the stack after rotation
-// // 	printf("Stack after rotation: ");
-// // 	print_stack(stack);
-// // 	return 0;
-// // }
