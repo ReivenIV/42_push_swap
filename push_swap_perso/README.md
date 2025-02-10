@@ -77,6 +77,9 @@
 		- [ ] Norminette
 		- [x] use tester to see average 100/500 movements result
 		- [ ] use checker
+		- [ ] Bugs found
+			- [ ] not handling well negative numbers at 2 or 3
+			- [ ] don't accept inputs with more than 10 digits (atol wiil not handle that s*)
 
 
 # Algo
