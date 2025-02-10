@@ -119,5 +119,6 @@ void	refresh_nodes_data(t_stack *a, t_stack *b)								//* init_nodes
 	refresh_ids(a);
 	refresh_ids(b);
 	refresh_targets_node(a, b);
+	set_prices(a, b);
 	flag_cheapest(b);
 }
