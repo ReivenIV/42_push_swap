@@ -39,7 +39,7 @@ static int	count_words(const char *str)
 
 static char	*get_next_word(const char **str)
 {
-    const char	*start;
+    int			start;
     char		*word;
     int			len;
     int			i;
@@ -48,7 +48,7 @@ static char	*get_next_word(const char **str)
     i = 0;
     while ((*str)[i] == ' ' && (*str)[i])
         i++;
-    start = &(*str)[i];
+    start = i;
     len = 0;
     while ((*str)[i + len] && (*str)[i + len] != ' ')
         len++;
@@ -58,7 +58,7 @@ static char	*get_next_word(const char **str)
     j = 0;
     while (j < len)
     {
-        word[j] = start[j];
+        word[j] = (*str)[start + j];
         j++;
     }
     word[len] = '\0';
@@ -98,27 +98,24 @@ char	**ft_split(const char *str)
 //*   ---------------------
 //*   ::  test it dear   ::
 //*  ----------------------
-
 // //!  Main function to test ft_split
-// #include <stdio.h>
-// void print_split(char **split) {
-// 	for (int i = 0; split[i]; i++) {
-// 		printf("Segment %d: '%s'\n", i, split[i]);
-// 		free(split[i]);
-// 	}
-// 	free(split);
-// }
-
-// int main() {
-// 	char **result;
-
-// 	// Test 1: Basic string with delimiters
-// 	result = ft_split("15 -85 42 99");
-// 	printf("Test 1:\n");
-// 	print_split(result);
-// 	// Expected Output:
-// 	// Segment 0: 'Hello'
-// 	// Segment 1: 'World'
-// 	// Segment 2: '42'
-// 	return 0;
-// }
+// // #include <stdio.h>
+// // void print_split(char **split) {
+// // 	for (int i = 0; split[i]; i++) {
+// // 		printf("Segment %d: '%s'\n", i, split[i]);
+// // 		free(split[i]);
+// // 	}
+// // 	free(split);
+// // }
+// // int main() {
+// // 	char **result;
+// // 	// Test 1: Basic string with delimiters
+// // 	result = ft_split("15 -85 42 99");
+// // 	printf("Test 1:\n");
+// // 	print_split(result);
+// // 	// Expected Output:
+// // 	// Segment 0: 'Hello'
+// // 	// Segment 1: 'World'
+// // 	// Segment 2: '42'
+// // 	return 0;
+// // }
