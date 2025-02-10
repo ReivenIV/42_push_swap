@@ -28,19 +28,15 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
-	@echo "Executable $(NAME) created successfully"
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "Compiled $< to $@"
 
 clean:
 	@rm -f $(OBJS)
-	@echo ".o files cleaned"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "Executable $(NAME) cleaned."
 
 re: fclean all
 
