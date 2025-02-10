@@ -56,31 +56,6 @@
 
 ---
 
-07/02/2025
-	TODO :
-		- [x] connect sort_4
-		- [x] create connect sort_5
-		- [x] sort_5 fixbug.
-		- [x] start looking for sort_100 / sort_500
-
-08/02/2025
-	TODO :
-		- [x] debug refresh_nodes_data
-		- [x] sort_random_amount is seg faulting. check whats going on. I think the problems is related to refresh_nodes_data not adding data and the ids:-1 are creating the problem. 
-
-10/02/2025
-	TODO :
-		- [ ] create Makefile
-		- [x] check leaks (valgrind)
-		- [ ] Well structured .h
-		- [ ] Update all file names in headers
-		- [ ] Norminette
-		- [x] use tester to see average 100/500 movements result
-		- [ ] use checker
-		- [ ] Bugs found
-			- [ ] not handling well negative numbers at 2 or 3
-			- [ ] don't accept inputs with more than 10 digits (atol wiil not handle that s*)
-
 
 # Algo
 	- tools:
@@ -102,9 +77,7 @@
 		- move
 			- [x] move target to top
 
-
 ---
-
 
 # Parsing :
 
@@ -147,4 +120,29 @@
 			- ex: Stack : (1,2,3) to_add : 40  ==>  Stack : (1,2,3,40)
 		- [x] TESS: Test Every Single Shit
 
+--- 
 
+07/02/2025
+	TODO :
+		- [x] connect sort_4
+		- [x] create connect sort_5
+		- [x] sort_5 fixbug.
+		- [x] start looking for sort_100 / sort_500
+
+08/02/2025
+	TODO :
+		- [x] debug refresh_nodes_data
+		- [x] sort_random_amount is seg faulting. check whats going on. I think the problems is related to refresh_nodes_data not adding data and the ids:-1 are creating the problem. 
+
+10/02/2025
+	TODO :
+		- [ ] create Makefile
+		- [x] check leaks (valgrind)
+		- [ ] Well structured .h
+		- [ ] Update all file names in headers
+		- [ ] Norminette
+		- [x] use tester to see average 100/500 movements result
+		- [ ] use checker
+		- [ ] Bugs found
+			- [ ] not handling well negative numbers at 2 or 3
+			- [x] don't accept inputs with more than 10 digits (atol wiil not handle that s*)
