@@ -11,148 +11,89 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
+#include <stdbool.h>
 
-size_t	ft_strlen(const char *str)
+static int	count_words(const char *str)
 {
-	size_t	count;
+    int		count;
+    bool	inside_word;
+    int		i;
 
-	count = 0;
-	while (str[count] != '\0')
-		count++;
-	return (count);
+    count = 0;
+    inside_word = false;
+    i = 0;
+    while (str[i])
+    {
+        if (str[i] != ' ' && !inside_word)
+        {
+            inside_word = true;
+            count++;
+        }
+        else if (str[i] == ' ')
+            inside_word = false;
+        i++;
+    }
+    return (count);
 }
 
-char	*ft_strdup(const char *str)
+static char	*get_next_word(const char **str)
 {
-	int		i;
-	int		str_len;
-	char	*dup;
+    const char	*start;
+    char		*word;
+    int			len;
+    int			i;
+    int			j;
 
-	i = 0;
-	str_len = ft_strlen(str);
-	dup = (char *)malloc(str_len * sizeof(char) + 1);
-	if (dup == NULL)
-		return (NULL);
-	while (i < str_len)
-	{
-		dup[i] = str[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
+    i = 0;
+    while ((*str)[i] == ' ' && (*str)[i])
+        i++;
+    start = &(*str)[i];
+    len = 0;
+    while ((*str)[i + len] && (*str)[i + len] != ' ')
+        len++;
+    word = malloc(sizeof(char) * (len + 1));
+    if (!word)
+        return (NULL);
+    j = 0;
+    while (j < len)
+    {
+        word[j] = start[j];
+        j++;
+    }
+    word[len] = '\0';
+    *str += i + len;
+    return (word);
 }
 
-char	*ft_substr(char const *src, unsigned int start, size_t len)
+char	**ft_split(const char *str)
 {
-	size_t	i;
-	size_t	src_len;
-	char	*str;
+    int		words_number;
+    char	**dest;
+    int		i;
 
-	if (src == NULL)
-		return (NULL);
-	src_len = ft_strlen(src);
-	if (start >= src_len)
-		return (ft_strdup(""));
-	if (start + len > src_len)
-		len = src_len - start;
-	str = malloc((len + 1) * sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	i = 0;
-	while (i < len && src[start + i] != '\0')
-	{
-		str[i] = src[start + i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
+    if (!str)
+        return (NULL);
+    words_number = count_words(str);
+    dest = malloc(sizeof(char *) * (words_number + 1));
+    if (!dest)
+        return (NULL);
+    i = 0;
+    while (i < words_number)
+    {
+        dest[i] = get_next_word(&str);
+        if (!dest[i])
+        {
+            while (i > 0)
+                free(dest[--i]);
+            free(dest);
+            return (NULL);
+        }
+        i++;
+    }
+    dest[i] = NULL;
+    return (dest);
 }
-
-// --------------------
-
-static size_t	count_words(char const *src)
-{
-	size_t	count;
-	size_t	i;
-
-	count = 0;
-	i = 0;
-	while (src[i])
-	{
-		if (src[i] != ' ')
-		{
-			count++;
-			while (src[i] && src[i] != ' ')
-				i++;
-		}
-		else if (src[i] == ' ')
-			i++;
-	}
-	return (count);
-}
-
-static	size_t	get_word_len(char const *src)
-{
-	size_t	i;
-
-	i = 0;
-	while (src[i] && src[i] != ' ')
-		i++;
-	return (i);
-}
-
-static void	free_dest(size_t i, char **dest)
-{
-	while (i > 0)
-	{
-		i--;
-		free(dest[i]);
-	}
-	free(dest);
-}
-
-static	char	**splitter(char const *src,	char **dest, size_t words_count)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
-	while (i < words_count)
-	{
-		while (src[j] && src[j] == ' ')
-			j++;
-		dest [i] = ft_substr(src, j, get_word_len(&src[j]));
-		if (!dest[i])
-		{
-			free_dest(i, dest);
-			return (NULL);
-		}
-		while (src[j] && src[j] != ' ')
-			j++;
-		i++;
-	}
-	dest[i] = NULL;
-	return (dest);
-}
-
-char	**ft_split(char const *src)
-{
-	char	**dest;
-	size_t	src_count_words;
-
-	if (!src)
-		return (NULL);
-	src_count_words = count_words(src);
-	dest = (char **)malloc(sizeof(char *) * (src_count_words + 1));
-	if (dest == NULL)
-		return (NULL);
-	dest = splitter(src, dest, src_count_words);
-	if (dest == NULL)
-		return (NULL);
-	return (dest);
-}
-
 
 //*   ---------------------
 //*   ::  test it dear   ::
