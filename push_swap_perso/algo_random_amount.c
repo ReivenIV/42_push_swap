@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+// Algo that will sort when the input has more than 5 values. 
 void	sort_random_amount(t_stack **stack_a, t_stack **stack_b, int len_a)
 {
 	t_stack	*min_value_a;
@@ -21,23 +22,16 @@ void	sort_random_amount(t_stack **stack_a, t_stack **stack_b, int len_a)
 		pb(stack_a, stack_b, false);
 		len_a--;
 	}
-	
 	sort_three_nbs(stack_a);
-	printf("   -------------------------------  \n");
-	refresh_nodes_data(*stack_a, *stack_b); // TODO r.b.d is not updating the data in nodes. check why. remember to test in testing folder
-
-	// while (*stack_b)
-	// {
-	// 	refresh_nodes_data(*stack_a, *stack_b);
-	// 	move_cheapest(stack_a, stack_b);
-	// }
-	print_stack_json(*stack_a, 'a');
-	print_stack_json(*stack_b, 'b');
-
-	// refresh_ids(*stack_a);
-	// min_value_a = get_s_node(*stack_a);
-	// move_t_to_top(stack_a, min_value_a, 'a');
-	// print_stack_json(*stack_a, 'a');
+	refresh_nodes_data(*stack_a, *stack_b);
+	while (*stack_b)
+	{
+		refresh_nodes_data(*stack_a, *stack_b);
+		move_cheapest(stack_a, stack_b);
+	}
+	refresh_ids(*stack_a);
+	min_value_a = get_s_node(*stack_a);
+	move_t_to_top(stack_a, min_value_a, 'a');
 }
 
 //*   ---------------------
@@ -60,7 +54,6 @@ void	sort_random_amount(t_stack **stack_a, t_stack **stack_b, int len_a)
 // // 	//print_stack_json(stack_a, 'a');
 // // 	//printf("------------------------");
 // //     // Sort the stack
-
 // //     sort_random_amount(&stack_a, &stack_b, get_stack_len(stack_a));
 // //     // Print the stack after sorting
 // // 	//print_stack_json(stack_a, 'a');
