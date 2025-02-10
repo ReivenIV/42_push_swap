@@ -87,7 +87,6 @@
 				- [x] We check every string. If in any case there is a bug like ::	  non nbs +/-           -> error
 				- If everything is in good shape we atol everything
 					- [x] we will need atol (atoi but with a long int to handle INT_MIN/MAX)
-					- [ ] edge case if the given number to atol has more than 10 digits then ERROR       <!--TODO handle error  -->   
 				- [x] We check every string. If in any case there is a bug like ::	  int_min  / int_max    -> error
 				- [x] We check every string. If in any case there is a bug like ::	  nbs repetitions		-> error
 				- [x] we create / append a new node in the stack A.
@@ -136,13 +135,13 @@
 
 10/02/2025
 	TODO :
-		- [ ] create Makefile
-		- [x] check leaks (valgrind)
-		- [ ] Well structured .h
-		- [ ] Update all file names in headers
 		- [ ] Norminette
+		- [ ] Well structured .h
+		- [x] use checker
+		- [x] create Makefile
+		- [x] check leaks (valgrind)
+		- [x] Update all file names in headers
 		- [x] use tester to see average 100/500 movements result
-		- [ ] use checker
-		- [ ] Bugs found
-			- [ ] not handling well negative numbers at 2 or 3
+		- [x] Bugs found
+			- [x] not handling well negative numbers at 2 or 3
 			- [x] don't accept inputs with more than 10 digits (atol wiil not handle that s*)
