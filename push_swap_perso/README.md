@@ -4,6 +4,8 @@
 - **CESS** = Comment Every Single Shit
 - **TESS** = Test Every Single Shit
 ### TOOD my dear !!
+
+## The project logic
 - [x] if one argument handle:
 	- [x] split without lixes
 - [x] if many arguments -> send the argv to stack_init
@@ -55,17 +57,23 @@
 ---
 
 07/02/2025
-	TODO
+	TODO :
 		- [x] connect sort_4
 		- [x] create connect sort_5
 		- [x] sort_5 fixbug.
 		- [x] start looking for sort_100 / sort_500
 
 08/02/2025
-	TODO
-		- [ ] debug refresh_nodes_data
-		- [ ] sort_random_amount is seg faulting. check whats going on. I think the problems is related to refresh_nodes_data not adding data and the ids:-1 are creating the problem. 
+	TODO :
+		- [x] debug refresh_nodes_data
+		- [x] sort_random_amount is seg faulting. check whats going on. I think the problems is related to refresh_nodes_data not adding data and the ids:-1 are creating the problem. 
 
+10/02/2025
+	TODO :
+		- [ ] create Makefile
+		- [ ] Well structured .h
+		- [ ] Update all file names in headers
+		- [ ] Norminette
 
 # Algo
 	- tools:
