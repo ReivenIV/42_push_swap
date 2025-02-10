@@ -34,6 +34,8 @@ int	is_syntax_correct(char* src) // error_syntax
 			return (0);
 		i++;
 	}
+	if (i > 11)																		// at these point "i" is also the lenght of the input and if its bigger than 10 then it means is bigger than is bigger than INT_min/max (-2147483648 = len 10)
+		return (0);
 	return (1);																		// if all the checks are false then. TRUE baby !!
 }
 
