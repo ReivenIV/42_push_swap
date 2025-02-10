@@ -71,9 +71,13 @@
 10/02/2025
 	TODO :
 		- [ ] create Makefile
+		- [x] check leaks (valgrind)
 		- [ ] Well structured .h
 		- [ ] Update all file names in headers
 		- [ ] Norminette
+		- [x] use tester to see average 100/500 movements result
+		- [ ] use checker
+
 
 # Algo
 	- tools:
