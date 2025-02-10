@@ -24,7 +24,6 @@ typedef struct s_stack
 	int				value;
 	int				id;									// current order of nodes (will be updated in every move)
 	bool			is_above_median;					// in the stack is it above the the middle of the stack ? 
-// //	int				final_index;
 	int				push_price;							// aprox how many moves will be needed to move the node
 	bool			is_cheapest;							// is it the cheapest node to be moved ? 
 	struct s_stack	*target_node;						// the best possible following node
@@ -39,7 +38,7 @@ void print_argv(char **av);
 
 // Tools  
 //* Parsing
-char	**ft_split(char const *src);
+char	**ft_split(const char *str);
 long	ft_atol(const char *src);
 void	stack_init(t_stack **stack_a, char **argv, bool is_argc_2);
 
@@ -110,6 +109,5 @@ void	sort_three_nbs(t_stack **a);
 void	sort_four_nbs(t_stack **stack_a, t_stack **stack_b);
 void	sort_five_nbs(t_stack **stack_a, t_stack **stack_b);
 void	sort_random_amount(t_stack **stack_a, t_stack **stack_b, int len_a);
-
 
 #endif
