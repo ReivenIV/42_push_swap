@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:29:01 by rita              #+#    #+#             */
-/*   Updated: 2025/02/10 14:13:03 by rita             ###   ########.fr       */
+/*   Updated: 2025/02/11 13:52:48 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,20 @@ void	sort_three_nbs(t_stack **a)
 
 	b_node = get_h_node(*a);
 	s_node = get_s_node(*a);
-
 	if ((*a) == b_node && (*a)->next == s_node)
-		ra(a, false);
+		ra(a);
 	else if ((*a) == b_node && (*a)->next != s_node)
 	{
-		sa(a, false);
-		rra(a, false);
+		sa(a);
+		rra(a);
 	}
 	else if ((*a) == s_node && (*a)->next == b_node)
 	{
-		sa(a, false);
-		ra(a, false);
+		sa(a);
+		ra(a);
 	}
 	else if ((*a) != s_node && (*a) != b_node && (*a)->next == b_node)
-		rra(a, false);
+		rra(a);
 	else if ((*a) != s_node && (*a) != b_node && (*a)->next == s_node)
-		sa(a, false);
-}	
+		sa(a);
+}

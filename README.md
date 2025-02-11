@@ -135,8 +135,8 @@
 
 10/02/2025
 	TODO :
-		- [ ] Norminette
-		- [ ] Well structured .h
+		- [x] Norminette
+		- [x] Well structured .h
 		- [x] use checker
 		- [x] create Makefile
 		- [x] check leaks (valgrind)

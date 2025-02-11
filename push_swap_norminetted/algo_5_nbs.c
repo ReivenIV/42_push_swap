@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 18:35:59 by rita              #+#    #+#             */
-/*   Updated: 2025/02/06 18:35:59 by rita             ###   ########.fr       */
+/*   Updated: 2025/02/11 13:54:07 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ void	sort_five_nbs(t_stack **stack_a, t_stack **stack_b)
 	refresh_ids(*stack_a);
 	smallest_node = get_smallest(*stack_a);
 	move_t_to_top(stack_a, smallest_node, 'a');
-	pb(stack_a, stack_b, false);
-
+	pb(stack_a, stack_b);
 	sort_four_nbs(stack_a, stack_b);
-	pa(stack_b, stack_a, false);
-	pa(stack_b, stack_a, false);
+	pa(stack_b, stack_a);
+	pa(stack_b, stack_a);
 }

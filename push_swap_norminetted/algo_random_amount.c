@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:20:30 by rita              #+#    #+#             */
-/*   Updated: 2025/02/07 17:20:30 by rita             ###   ########.fr       */
+/*   Updated: 2025/02/11 13:52:57 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	sort_random_amount(t_stack **stack_a, t_stack **stack_b, int len_a)
 
 	while (len_a > 3)
 	{
-		pb(stack_a, stack_b, false);
+		pb(stack_a, stack_b);
 		len_a--;
 	}
 	sort_three_nbs(stack_a);

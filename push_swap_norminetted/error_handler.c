@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:28:04 by rita              #+#    #+#             */
-/*   Updated: 2025/01/27 14:28:04 by rita             ###   ########.fr       */
+/*   Updated: 2025/02/11 13:53:00 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 //* Will check src is a (char*)numbers. 
 // if valid, TRUE/1
 // if not valid, FALSE/0
-int	is_syntax_correct(char* src)
+int	is_syntax_correct(char *src)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	if (src == NULL)
 		return (0);
 	if (!(src[0] == '+' || src[0] == '-' || (src[0] >= '0' && src[0] <= '9')))
 		return (0);
-	if ((src[0] == '+' ||  src[0] == '-') && !(src[1] >= '0' && src[1] <= '9'))
+	if ((src[0] == '+' || src[0] == '-') && !(src[1] >= '0' && src[1] <= '9'))
 		return (0);
-	if ((src[0] == '+' ||  src[0] == '-') && (src[1] >= '0' && src[1] <= '9'))
+	if ((src[0] == '+' || src[0] == '-') && (src[1] >= '0' && src[1] <= '9'))
 		i++;
 	while (src[i] != '\0')
 	{
@@ -56,7 +56,7 @@ int	is_nb_in_stack(t_stack *a, int nb)
 void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp_node;
-	t_stack *current_node;
+	t_stack	*current_node;
 
 	if (stack == NULL)
 		return ;
@@ -74,10 +74,10 @@ void	free_stack(t_stack **stack)
 //* Will free all elements in argv and argv itself
 void	free_argv(char **av, bool is_ac_2)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(av[i])
+	while (av[i])
 	{
 		free(av[i]);
 		i++;
@@ -86,7 +86,8 @@ void	free_argv(char **av, bool is_ac_2)
 		free(av);
 }
 
-// Will free all the stack and if argc was only 2 (known by 1/0 TRUE/FALSE) will free all argv aswell
+// Will free all the stack and if argc was only 2 
+//(known by 1/0 TRUE/FALSE) will free all argv aswell
 void	free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2)
 {
 	free_stack(a_or_b);
