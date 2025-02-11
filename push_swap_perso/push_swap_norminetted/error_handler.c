@@ -90,7 +90,6 @@ void	free_argv(char **av, bool is_ac_2)
 void	free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2)
 {
 	free_stack(a_or_b);
-
 	if (flag_argc_2)
 		free_argv(argv, true);
 	write(2, "Error\n", 6);
