@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
-#include <stdbool.h>
 
 static int	count_words(const char *str)
 {
@@ -62,7 +60,7 @@ static char	*get_next_word(const char **str)
 		j++;
 	}
 	word[len] = '\0';
-	*str += i + len;
+	*str = *str + i + len;
 	return (word);
 }
 

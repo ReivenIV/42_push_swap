@@ -13,7 +13,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>   //! <--
 # include <stdlib.h>
 # include <stdbool.h> //* <--
 # include <unistd.h>
@@ -30,14 +29,6 @@ typedef struct s_stack
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }	t_stack;
-
-// Tools for testing :
-void print_argv(char **av);									//! --> for testing
-void	print_stack(t_stack *stack);					//! --> for testing
-
-
-void print_stack_json(t_stack *stack, char c);
-void print_argv(char **av);
 
 // Tools  
 //* Parsing
