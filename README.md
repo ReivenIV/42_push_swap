@@ -1,3 +1,30 @@
+I shoud do a nicer readme ^^
+
+Stats of these push_swap : 
+
+- Started date : 22/01/2025.
+- Finished date : 11/02/2025.
+- validated date : 12/02/2025.
+- Validated with : 98 points.
+- Time spend coding these project : 46hrs 32min
+
+### 100 random numbers 100 runs:
+ - worst : 677
+ - median : 605
+ - best : 531
+ - deviation : 28.8
+ - effectivnes : 100%
+ - objective of less than 700 moves : 100%
+
+### 500 random numbers 100 runs:
+ - worst : 5746
+ - median : 5480
+ - best : 5102
+ - deviation : 123.3
+ - effectivnes : 100%
+ - objective of less than 5500 moves : ~60%
+
+
 # TODO
 
 # Doesn't matter what they say do CESS & TESS
@@ -51,8 +78,7 @@
 				- [x] sort_4_algo.
 				- Something more
 			- if stack A > 5 nodes.
-				- [ ] 100 algo:
-				- [ ] 500 algo:
+				-  [x] sort_random_amount
 
 ---
 
@@ -121,22 +147,30 @@
 
 --- 
 
+
 07/02/2025
+
 	TODO :
+
 		- [x] connect sort_4
 		- [x] create connect sort_5
 		- [x] sort_5 fixbug.
 		- [x] start looking for sort_100 / sort_500
 
+--- 
 08/02/2025
+
 	TODO :
+
 		- [x] debug refresh_nodes_data
 		- [x] sort_random_amount is seg faulting. check whats going on. I think the problems is related to refresh_nodes_data not adding data and the ids:-1 are creating the problem. 
-
+--- 
 10/02/2025
+
 	TODO :
-		- [ ] Norminette
-		- [ ] Well structured .h
+
+		- [x] Norminette
+		- [x] Well structured .h
 		- [x] use checker
 		- [x] create Makefile
 		- [x] check leaks (valgrind)
