@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:28:11 by rita              #+#    #+#             */
-/*   Updated: 2025/01/27 14:28:11 by rita             ###   ########.fr       */
+/*   Updated: 2025/02/11 13:53:22 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
-# include <stdbool.h> //* <--
+# include <stdbool.h>
 # include <unistd.h>
 # include <limits.h>
 
@@ -37,7 +37,7 @@ long	ft_atol(const char *src);
 void	stack_init(t_stack **stack_a, char **argv, bool is_argc_2);
 
 // Error handling
-int		is_syntax_correct(char* src);
+int		is_syntax_correct(char *src);
 int		is_nb_in_stack(t_stack *a, int nb);
 void	free_stack(t_stack **stack);
 void	free_argv(char **argv, bool is_ac_2);
@@ -48,7 +48,6 @@ void	free_handler(t_stack **a_or_b, char **argv, bool flag_argc_2);
 //		-------------
 // tools Stack-node
 t_stack	*create_new_node(int value);					
-void	push_to_top_node(t_stack **stack, int value);
 void	push_to_bottom_node(t_stack **stack, int value);
 int		is_stack_sorted(t_stack *stack);
 
@@ -73,22 +72,22 @@ void	refresh_nodes_data(t_stack *a, t_stack *b);
 //		::  Instructions  ::
 //		--------------------
 // Rotate:
-void	ra(t_stack **a, bool testing_mode);
-void	rb(t_stack **b, bool testing_mode);
-void	rr(t_stack **a, t_stack **b, bool testing_mode);
+void	ra(t_stack **a);
+void	rb(t_stack **b);
+void	rr(t_stack **a, t_stack **b);
 void	rr_till_cheapest(t_stack **a, t_stack **b, t_stack *cheapest_node);
 // Reverse-rotate
-void	rra(t_stack **a, bool testing_mode);
-void	rrb(t_stack **b, bool testing_mode);
-void	rrr(t_stack **a, t_stack **b, bool testing_mode);
+void	rra(t_stack **a);
+void	rrb(t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
 void	rrr_till_cheapest(t_stack **a, t_stack **b, t_stack *cheapest_node);
 // Swap
-void	sa(t_stack **a, bool testing_mode);
-void	sb(t_stack **b, bool testing_mode);
-void	ss(t_stack **a, t_stack **b, bool testing_mode);
+void	sa(t_stack **a);
+void	sb(t_stack **b);
+void	ss(t_stack **a, t_stack **b);
 // Push
-void	pa(t_stack **b, t_stack **a, bool testing_mode);
-void	pb(t_stack **a, t_stack **b, bool testing_mode);
+void	pa(t_stack **b, t_stack **a);
+void	pb(t_stack **a, t_stack **b);
 
 // sort_3 tools
 t_stack	*get_h_node(t_stack *stack);

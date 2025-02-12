@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 15:49:56 by rita              #+#    #+#             */
-/*   Updated: 2025/02/06 15:49:56 by rita             ###   ########.fr       */
+/*   Updated: 2025/02/11 13:53:30 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 // count the amount of nodes that has a stack.
 int	get_stack_len(t_stack *stack)
 {
-	int count;
+	int	count;
 
-	count =  0;
+	count = 0;
 	if (stack == NULL)
 		return (0);
 	while (stack)
@@ -59,7 +59,7 @@ t_stack	*get_cheapest(t_stack *stack)
 }
 
 // Will return the node of a given stack with the smallest value.
-t_stack *get_smallest(t_stack *stack)
+t_stack	*get_smallest(t_stack *stack)
 {
 	long	smallest_value;
 	t_stack	*xs_node;

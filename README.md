@@ -168,7 +168,6 @@ Stats of these push_swap :
 10/02/2025
 
 	TODO :
-
 		- [x] Norminette
 		- [x] Well structured .h
 		- [x] use checker
