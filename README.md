@@ -79,6 +79,7 @@ Stats of these push_swap :
 				- Something more
 			- if stack A > 5 nodes.
 				-  [x] sort_random_amount
+			- [x] create algo_handler to manage wich algo should be used in every sitaution
 
 ---
 
