@@ -28,8 +28,8 @@ Stats of these push_swap :
 # TODO
 
 # Doesn't matter what they say do CESS & TESS
-- **CESS** = Comment Every Single Shit
-- **TESS** = Test Every Single Shit
+- **CESS** = Comment Every Single s**
+- **TESS** = Test Every Single s**
 ### TOOD my dear !!
 
 ## The project logic
@@ -119,7 +119,7 @@ Stats of these push_swap :
 			- Outside the loop
 				- When stack in full with the needed nodes and the code didn't found any problem
 					- [x] we free all data in argv. We aint gonna need it animore baby !!
-			- [x] TESS: Test Every Single Shit
+			- [x] TESS: Test Every Single s**
 			
 		## error_handler.c :: FREE errors or mallocs = NULL (super important)
 		- In case you need to stop the program. You will need to free every elemnt of the stack and also argv. 
@@ -143,7 +143,7 @@ Stats of these push_swap :
 			- [x] will need to go to the end of the current stack.
 			- [x] when in the end. add a new node.
 			- ex: Stack : (1,2,3) to_add : 40  ==>  Stack : (1,2,3,40)
-		- [x] TESS: Test Every Single Shit
+		- [x] TESS: Test Every Single s**
 
 --- 
 
