@@ -30,10 +30,11 @@ Sincere recomendations :
 
 # TODO
 
-# Doesn't matter what they say do CESS & TESS
+## Doesn't matter what they say. Do CESS & TESS
 - **CESS** = Comment Every Single s**
 - **TESS** = Test Every Single s**
-### TOOD my dear !!
+- write code that you will understand in 6 month !
+
 
 ## The project logic
 - [x] if one argument handle:
