@@ -1,5 +1,9 @@
 I shoud do a nicer readme ^^
 
+Sincere recomendations : 
+ - Don't panic see these proyect just as an inistiation to linked lists
+ - i propose you to check the commented version like that you will have a better understanding of what is going on.
+
 Stats of these push_swap : 
 
 - Started date : 22/01/2025.
