@@ -28,7 +28,6 @@ Stats of these push_swap :
  - effectivnes : 100%
  - objective of less than 5500 moves : ~60%
 
-
 # TODO
 
 # Doesn't matter what they say do CESS & TESS
