@@ -30,6 +30,9 @@ it that can't be executed won't.
 | `rrb` | reverse rotate b                    | shifts all elements of stack b from top to bottom      |
 | `rrr` | reverse rotate a + reverse rotate b | both `rra` and `rrb`                                   |
 
+- In case you want to test the projet (or your own) i totally recomend to use these tester : 
+	- https://github.com/SimonCROS/push_swap_tester	
+
 # Stats of these push_swap : 
 
 - Started date : 22/01/2025.
