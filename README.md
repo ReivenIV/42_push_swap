@@ -30,8 +30,15 @@ it that can't be executed won't.
 | `rrb` | reverse rotate b                    | shifts all elements of stack b from top to bottom      |
 | `rrr` | reverse rotate a + reverse rotate b | both `rra` and `rrb`                                   |
 
+## Refs & Sources :
 - In case you want to test the projet (or your own) i totally recomend to use these tester : 
 	- https://github.com/SimonCROS/push_swap_tester	
+- usefull to understand movements: 
+	- https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
+- the idea behind the algorithme i used : 
+	- https://medium.com/@ayogun/push-swap-c1f5d2d41e97
+	- https://www.youtube.com/watch?v=OaG81sDEpVk&t=2945s
+	- https://github.com/suspectedoceano/push_swap (main ref)
 
 # Stats of these push_swap : 
 
