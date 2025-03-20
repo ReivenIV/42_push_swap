@@ -30,8 +30,6 @@ it that can't be executed won't.
 | `rrb` | reverse rotate b                    | shifts all elements of stack b from top to bottom      |
 | `rrr` | reverse rotate a + reverse rotate b | both `rra` and `rrb`                                   |
 
-
-
 # Stats of these push_swap : 
 
 - Started date : 22/01/2025.
@@ -55,5 +53,3 @@ it that can't be executed won't.
  - deviation : 123.3
  - effectivnes : 100%
  - objective of less than 5500 moves : ~60%
-
-
